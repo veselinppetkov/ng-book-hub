@@ -52,29 +52,35 @@
                 role="tabpanel"
                 aria-labelledby="signin-tab"
               >
-                <form action="#">
+                <form
+                  #signInForm="ngForm"
+                  (ngSubmit)="onLoginSubmit(signInForm)"
+                >
                   <div class="form-group">
-                    <label for="singin-email"
-                      >Username or email address *</label
-                    >
+                    <label for="signInEmail">E-Mail Address *</label>
                     <input
-                      type="text"
+                      type="email"
+                      id="signInEmail"
                       class="form-control"
-                      id="singin-email"
-                      name="singin-email"
+                      ngModel
+                      name="signInEmail"
+                      placeholder="jsman@softuni.bg"
                       required
+                      email
                     />
                   </div>
                   <!-- End .form-group -->
 
                   <div class="form-group">
-                    <label for="singin-password">Password *</label>
+                    <label for="signInPassword">Password *</label>
                     <input
                       type="password"
+                      id="signInPassword"
                       class="form-control"
-                      id="singin-password"
-                      name="singin-password"
-                      required
+                      ngModel
+                      name="signInPassword"
+                      placeholder="••••••"
+                      minlength="3"
                     />
                   </div>
                   <!-- End .form-group -->
@@ -130,27 +136,51 @@
                 role="tabpanel"
                 aria-labelledby="register-tab"
               >
-                <form action="#">
+                <form
+                  #registerForm="ngForm"
+                  (ngSubmit)="onRegisterSubmit(registerForm)"
+                >
                   <div class="form-group">
-                    <label for="register-email">Your email address *</label>
+                    <label for="registerEmail">Your E-Mail Address *</label>
                     <input
                       type="email"
                       class="form-control"
-                      id="register-email"
-                      name="register-email"
+                      id="registerEmail"
+                      name="registerEmail"
                       required
+                      ngModel
+                      placeholder="jsman@softuni.bg"
+                      email
                     />
                   </div>
                   <!-- End .form-group -->
 
                   <div class="form-group">
-                    <label for="register-password">Password *</label>
+                    <label for="registerPassword">Password *</label>
                     <input
                       type="password"
                       class="form-control"
-                      id="register-password"
-                      name="register-password"
+                      id="registerPassword"
+                      name="registerPassword"
                       required
+                      ngModel
+                      minlength="3"
+                      placeholder="••••••"
+                    />
+                  </div>
+                  <!-- End .form-group -->
+
+                  <div class="form-group">
+                    <label for="registerRepass">Repeat Password *</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="registerRepass"
+                      name="registerRepass"
+                      required
+                      ngModel
+                      minlength="3"
+                      placeholder="••••••"
                     />
                   </div>
                   <!-- End .form-group -->

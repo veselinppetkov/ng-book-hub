@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,8 @@ import { IntroComponent } from './intro/intro.component';
 import { BestsellerComponent } from './bestseller/bestseller.component';
 import { WeeklyPopularComponent } from './weekly-popular/weekly-popular.component';
 import { AuthModalComponent } from './auth-modal/auth-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptorService } from './auth-modal/auth.interceptor.service';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,16 @@ import { AuthModalComponent } from './auth-modal/auth-modal.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
