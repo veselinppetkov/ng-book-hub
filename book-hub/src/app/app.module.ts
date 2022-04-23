@@ -14,6 +14,7 @@ import { WeeklyPopularComponent } from './weekly-popular/weekly-popular.componen
 import { AuthModalComponent } from './auth-modal/auth-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './auth-modal/auth.interceptor.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AuthInterceptorService } from './auth-modal/auth.interceptor.service';
     BestsellerComponent,
     WeeklyPopularComponent,
     AuthModalComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
