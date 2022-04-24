@@ -15,6 +15,13 @@ import { AuthModalComponent } from './auth-modal/auth-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './auth-modal/auth.interceptor.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductComponent } from './product/product.component';
+import { ShopComponent } from './shop/shop.component';
+import { AboutComponent } from './about/about.component';
+import { CartComponent } from './cart/cart.component';
+import { ContactComponent } from './contact/contact.component';
+import { ProfileComponent } from './profile/profile.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +33,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     WeeklyPopularComponent,
     AuthModalComponent,
     PageNotFoundComponent,
+    ProductComponent,
+    ShopComponent,
+    AboutComponent,
+    CartComponent,
+    ContactComponent,
+    ProfileComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +48,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }, {
+  providers: [{ provide: APP_BASE_HREF, useValue: '' }, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true
