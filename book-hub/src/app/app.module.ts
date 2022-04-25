@@ -22,6 +22,7 @@ import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { BestsellerItemComponent } from './bestseller/bestseller-item/bestseller-item.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     ContactComponent,
     ProfileComponent,
     WishlistComponent,
+    BestsellerItemComponent,
   ],
   imports: [
     BrowserModule,
