@@ -11,9 +11,9 @@
 <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
   <div class="container">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Shop</a></li>
-      <li class="breadcrumb-item"><a href="#">No Sidebar</a></li>
+      <li class="breadcrumb-item"><a routerLink="index.html">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="#">Shop</a></li>
+      <li class="breadcrumb-item"><a routerLink="#">No Sidebar</a></li>
       <li class="breadcrumb-item active" aria-current="page">Boxed</li>
     </ol>
   </div>
@@ -25,7 +25,9 @@
   <div class="container">
     <div class="toolbox">
       <div class="toolbox-left">
-        <a href="#" class="sidebar-toggler"><i class="icon-bars"></i>Filters</a>
+        <a routerLink="#" class="sidebar-toggler"
+          ><i class="icon-bars"></i>Filters</a
+        >
       </div>
       <!-- End .toolbox-left -->
 
@@ -60,7 +62,7 @@
           <div class="product">
             <figure class="product-media">
               <span class="product-label label-new">New</span>
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-1.jpg"
                   alt="Product image"
@@ -69,23 +71,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -95,11 +102,11 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Women</a>
+                <a routerLink="#">Women</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Nunc dignissim risus</a>
+                <a routerLink="product.html">Nunc dignissim risus</a>
               </h3>
               <!-- End .product-title -->
               <div class="product-price">$50.00</div>
@@ -115,10 +122,10 @@
               <!-- End .rating-container -->
 
               <div class="product-nav product-nav-dots">
-                <a href="#" style="background: #cc9966"
+                <a routerLink="#" style="background: #cc9966"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" class="active" style="background: #ebebeb"
+                <a routerLink="#" class="active" style="background: #ebebeb"
                   ><span class="sr-only">Color name</span></a
                 >
               </div>
@@ -133,7 +140,7 @@
         <div class="col-6 col-md-4 col-lg-4 col-xl-3">
           <div class="product">
             <figure class="product-media">
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-2.jpg"
                   alt="Product image"
@@ -142,23 +149,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -168,11 +180,11 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Accessories</a>
+                <a routerLink="#">Accessories</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Cras ornare tristique</a>
+                <a routerLink="product.html">Cras ornare tristique</a>
               </h3>
               <!-- End .product-title -->
               <div class="product-price">$32.00</div>
@@ -197,7 +209,7 @@
           <div class="product">
             <figure class="product-media">
               <span class="product-label label-sale">30% off</span>
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-3.jpg"
                   alt="Product image"
@@ -206,23 +218,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -232,11 +249,11 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Women</a>
+                <a routerLink="#">Women</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Aliquam tincidunt mauris</a>
+                <a routerLink="product.html">Aliquam tincidunt mauris</a>
               </h3>
               <!-- End .product-title -->
               <div class="product-price">
@@ -255,13 +272,13 @@
               <!-- End .rating-container -->
 
               <div class="product-nav product-nav-dots">
-                <a href="#" class="active" style="background: #cc9966"
+                <a routerLink="#" class="active" style="background: #cc9966"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" style="background: #7fc5ed"
+                <a routerLink="#" style="background: #7fc5ed"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" style="background: #e8c97a"
+                <a routerLink="#" style="background: #e8c97a"
                   ><span class="sr-only">Color name</span></a
                 >
               </div>
@@ -276,7 +293,7 @@
         <div class="col-6 col-md-4 col-lg-4 col-xl-3">
           <div class="product">
             <figure class="product-media">
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-4.jpg"
                   alt="Product image"
@@ -285,23 +302,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -311,11 +333,13 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Dresses</a>
+                <a routerLink="#">Dresses</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Brown paperbag waist pencil skirt</a>
+                <a routerLink="product.html"
+                  >Brown paperbag waist pencil skirt</a
+                >
               </h3>
               <!-- End .product-title -->
               <div class="product-price">$60.00</div>
@@ -331,13 +355,13 @@
               <!-- End .rating-container -->
 
               <div class="product-nav product-nav-dots">
-                <a href="#" class="active" style="background: #cc9966"
+                <a routerLink="#" class="active" style="background: #cc9966"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" style="background: #333333"
+                <a routerLink="#" style="background: #333333"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" style="background: #7b5d36"
+                <a routerLink="#" style="background: #7b5d36"
                   ><span class="sr-only">Color name</span></a
                 >
               </div>
@@ -352,7 +376,7 @@
         <div class="col-6 col-md-4 col-lg-4 col-xl-3">
           <div class="product">
             <figure class="product-media">
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-5.jpg"
                   alt="Product image"
@@ -361,23 +385,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -387,11 +416,13 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Dresses</a>
+                <a routerLink="#">Dresses</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Dark yellow lace cut out swing dress</a>
+                <a routerLink="product.html"
+                  >Dark yellow lace cut out swing dress</a
+                >
               </h3>
               <!-- End .product-title -->
               <div class="product-price">$84.00</div>
@@ -407,10 +438,10 @@
               <!-- End .rating-container -->
 
               <div class="product-nav product-nav-dots">
-                <a href="#" style="background: #ebebeb"
+                <a routerLink="#" style="background: #ebebeb"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" class="active" style="background: #eabc4e"
+                <a routerLink="#" class="active" style="background: #eabc4e"
                   ><span class="sr-only">Color name</span></a
                 >
               </div>
@@ -426,7 +457,7 @@
           <div class="product">
             <figure class="product-media">
               <span class="product-label label-out">Out of stock</span>
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-6.jpg"
                   alt="Product image"
@@ -435,23 +466,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -461,11 +497,11 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Jackets</a>
+                <a routerLink="#">Jackets</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Khaki utility boiler jumpsuit</a>
+                <a routerLink="product.html">Khaki utility boiler jumpsuit</a>
               </h3>
               <!-- End .product-title -->
               <div class="product-price">
@@ -491,7 +527,7 @@
         <div class="col-6 col-md-4 col-lg-4 col-xl-3">
           <div class="product">
             <figure class="product-media">
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-7.jpg"
                   alt="Product image"
@@ -500,23 +536,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -526,11 +567,13 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Jeans</a>
+                <a routerLink="#">Jeans</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Blue utility pinafore denim dress</a>
+                <a routerLink="product.html"
+                  >Blue utility pinafore denim dress</a
+                >
               </h3>
               <!-- End .product-title -->
               <div class="product-price">$76.00</div>
@@ -554,7 +597,7 @@
         <div class="col-6 col-md-4 col-lg-4 col-xl-3">
           <div class="product">
             <figure class="product-media">
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-8.jpg"
                   alt="Product image"
@@ -563,23 +606,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -589,11 +637,13 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Shoes</a>
+                <a routerLink="#">Shoes</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Beige knitted elastic runner shoes</a>
+                <a routerLink="product.html"
+                  >Beige knitted elastic runner shoes</a
+                >
               </h3>
               <!-- End .product-title -->
               <div class="product-price">$84.00</div>
@@ -609,10 +659,10 @@
               <!-- End .rating-container -->
 
               <div class="product-nav product-nav-dots">
-                <a href="#" class="active" style="background: #d8c5b0"
+                <a routerLink="#" class="active" style="background: #d8c5b0"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" style="background: #333333"
+                <a routerLink="#" style="background: #333333"
                   ><span class="sr-only">Color name</span></a
                 >
               </div>
@@ -627,7 +677,7 @@
         <div class="col-6 col-md-4 col-lg-4 col-xl-3">
           <div class="product">
             <figure class="product-media">
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-9.jpg"
                   alt="Product image"
@@ -636,23 +686,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -662,11 +717,11 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Bags</a>
+                <a routerLink="#">Bags</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html"
+                <a routerLink="product.html"
                   >Orange saddle lock front chain cross body bag</a
                 >
               </h3>
@@ -684,13 +739,13 @@
               <!-- End .rating-container -->
 
               <div class="product-nav product-nav-dots">
-                <a href="#" class="active" style="background: #e07a3d"
+                <a routerLink="#" class="active" style="background: #e07a3d"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" style="background: #7b5d36"
+                <a routerLink="#" style="background: #7b5d36"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" style="background: #dac1a7"
+                <a routerLink="#" style="background: #dac1a7"
                   ><span class="sr-only">Color name</span></a
                 >
               </div>
@@ -706,7 +761,7 @@
           <div class="product">
             <figure class="product-media">
               <span class="product-label label-new">New</span>
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-10.jpg"
                   alt="Product image"
@@ -715,23 +770,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -741,11 +801,11 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Jumpers</a>
+                <a routerLink="#">Jumpers</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Yellow button front tea top</a>
+                <a routerLink="product.html">Yellow button front tea top</a>
               </h3>
               <!-- End .product-title -->
               <div class="product-price">$56.00</div>
@@ -770,7 +830,7 @@
           <div class="product">
             <figure class="product-media">
               <span class="product-label label-top">Top</span>
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-11.jpg"
                   alt="Product image"
@@ -779,23 +839,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -805,11 +870,13 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Shoes</a>
+                <a routerLink="#">Shoes</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Light brown studded Wide fit wedges</a>
+                <a routerLink="product.html"
+                  >Light brown studded Wide fit wedges</a
+                >
               </h3>
               <!-- End .product-title -->
               <div class="product-price">$110.00</div>
@@ -825,13 +892,13 @@
               <!-- End .rating-container -->
 
               <div class="product-nav product-nav-dots">
-                <a href="#" class="active" style="background: #cc9966"
+                <a routerLink="#" class="active" style="background: #cc9966"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" style="background: #333333"
+                <a routerLink="#" style="background: #333333"
                   ><span class="sr-only">Color name</span></a
                 >
-                <a href="#" style="background: #dac1a7"
+                <a routerLink="#" style="background: #dac1a7"
                   ><span class="sr-only">Color name</span></a
                 >
               </div>
@@ -846,7 +913,7 @@
         <div class="col-6 col-md-4 col-lg-4 col-xl-3">
           <div class="product">
             <figure class="product-media">
-              <a href="product.html">
+              <a routerLink="product.html">
                 <img
                   src="../../assets/images/products/product-12.jpg"
                   alt="Product image"
@@ -855,23 +922,28 @@
               </a>
 
               <div class="product-action-vertical">
-                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+                <a
+                  routerLink="#"
+                  class="btn-product-icon btn-wishlist btn-expandable"
                   ><span>add to wishlist</span></a
                 >
               </div>
               <!-- End .product-action -->
 
               <div class="product-action action-icon-top">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
                 <a
-                  href="./quickView.html"
+                  routerLink="./quickView.html"
                   class="btn-product btn-quickview"
                   title="Quick view"
                   ><span>quick view</span></a
                 >
-                <a href="#" class="btn-product btn-compare" title="Compare"
+                <a
+                  routerLink="#"
+                  class="btn-product btn-compare"
+                  title="Compare"
                   ><span>compare</span></a
                 >
               </div>
@@ -881,11 +953,13 @@
 
             <div class="product-body">
               <div class="product-cat">
-                <a href="#">Bags</a>
+                <a routerLink="#">Bags</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a href="product.html">Black soft RI weekend travel bag</a>
+                <a routerLink="product.html"
+                  >Black soft RI weekend travel bag</a
+                >
               </h3>
               <!-- End .product-title -->
               <div class="product-price">$68.00</div>
@@ -909,7 +983,7 @@
       <!-- End .row -->
 
       <div class="load-more-container text-center">
-        <a href="#" class="btn btn-outline-darker btn-load-more"
+        <a routerLink="#" class="btn btn-outline-darker btn-load-more"
           >More Products <i class="icon-refresh"></i
         ></a>
       </div>
@@ -923,14 +997,14 @@
       <div class="sidebar-filter-wrapper">
         <div class="widget widget-clean">
           <label><i class="icon-close"></i>Filters</label>
-          <a href="#" class="sidebar-filter-clear">Clean All</a>
+          <a routerLink="#" class="sidebar-filter-clear">Clean All</a>
         </div>
         <!-- End .widget -->
         <div class="widget widget-collapsible">
           <h3 class="widget-title">
             <a
               data-toggle="collapse"
-              href="#widget-1"
+              routerLink="#widget-1"
               role="button"
               aria-expanded="true"
               aria-controls="widget-1"
@@ -1081,7 +1155,7 @@
           <h3 class="widget-title">
             <a
               data-toggle="collapse"
-              href="#widget-2"
+              routerLink="#widget-2"
               role="button"
               aria-expanded="true"
               aria-controls="widget-2"
@@ -1186,7 +1260,7 @@
           <h3 class="widget-title">
             <a
               data-toggle="collapse"
-              href="#widget-3"
+              routerLink="#widget-3"
               role="button"
               aria-expanded="true"
               aria-controls="widget-3"
@@ -1199,28 +1273,28 @@
           <div class="collapse show" id="widget-3">
             <div class="widget-body">
               <div class="filter-colors">
-                <a href="#" style="background: #b87145"
+                <a routerLink="#" style="background: #b87145"
                   ><span class="sr-only">Color Name</span></a
                 >
-                <a href="#" style="background: #f0c04a"
+                <a routerLink="#" style="background: #f0c04a"
                   ><span class="sr-only">Color Name</span></a
                 >
-                <a href="#" style="background: #333333"
+                <a routerLink="#" style="background: #333333"
                   ><span class="sr-only">Color Name</span></a
                 >
-                <a href="#" class="selected" style="background: #cc3333"
+                <a routerLink="#" class="selected" style="background: #cc3333"
                   ><span class="sr-only">Color Name</span></a
                 >
-                <a href="#" style="background: #3399cc"
+                <a routerLink="#" style="background: #3399cc"
                   ><span class="sr-only">Color Name</span></a
                 >
-                <a href="#" style="background: #669933"
+                <a routerLink="#" style="background: #669933"
                   ><span class="sr-only">Color Name</span></a
                 >
-                <a href="#" style="background: #f2719c"
+                <a routerLink="#" style="background: #f2719c"
                   ><span class="sr-only">Color Name</span></a
                 >
-                <a href="#" style="background: #ebebeb"
+                <a routerLink="#" style="background: #ebebeb"
                   ><span class="sr-only">Color Name</span></a
                 >
               </div>
@@ -1236,7 +1310,7 @@
           <h3 class="widget-title">
             <a
               data-toggle="collapse"
-              href="#widget-4"
+              routerLink="#widget-4"
               role="button"
               aria-expanded="true"
               aria-controls="widget-4"
@@ -1366,7 +1440,7 @@
           <h3 class="widget-title">
             <a
               data-toggle="collapse"
-              href="#widget-5"
+              routerLink="#widget-5"
               role="button"
               aria-expanded="true"
               aria-controls="widget-5"

@@ -1,21 +1,21 @@
-<ng-template carouselSlide [id]="bestseller.book_id.toString()" class="product">
-  <span class="product-label label-sale">Sale</span>
+<div class="product">
+  <span class="product-label label-top">Top</span>
   <figure class="product-media">
-    <a href="#">
+    <a routerLink="/product/{{ bestseller.book_id }}">
       <img
         src="{{ bestseller.cover }}"
         alt="Product image"
-        class="product-image"
+        class="product-image-bestseller"
       />
     </a>
   </figure>
 
   <div class="product-body">
     <div class="product-cat">
-      by <a href="#">{{ bestseller.author }}</a>
+      by <a routerLink="#">{{ bestseller.author }}</a>
     </div>
     <h3 class="product-title">
-      <a href="#">{{ bestseller.title }}</a>
+      <a routerLink="#">{{ bestseller.title }}</a>
     </h3>
     <div class="product-price">
       <span class="new-price">${{ bestseller.price }}</span>
@@ -32,11 +32,13 @@
         <span class="ratings-text">( 10 Reviews )</span>
       </div>
       <div class="product-action">
-        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-        <a href="#" class="btn-product btn-wishlist"
+        <a routerLink="#" class="btn-product btn-cart"
+          ><span>add to cart</span></a
+        >
+        <a routerLink="#" class="btn-product btn-wishlist"
           ><span>Add to Wishlist</span></a
         >
       </div>
     </div>
   </div>
-</ng-template>
+</div>

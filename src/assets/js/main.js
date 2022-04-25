@@ -8,29 +8,30 @@ $(document).ready(function () {
   // Header Search Toggle
 
   setTimeout(function () {
-    $(".blog-slides").owlCarousel({
-      loop: true,
-      nav: true,
+    $("#my-custom-carousel").owlCarousel({
+      nav: false,
       dots: true,
-      autoplayHoverPause: true,
+      margin: 20,
+      loop: true,
       autoplay: true,
-      margin: 30,
-      navText: [
-        "<i class='bx bx-chevron-left'></i>",
-        "<i class='bx bx-chevron-right'></i>",
-      ],
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      rewind: true,
       responsive: {
         0: {
-          items: 1,
-        },
-        576: {
-          items: 1,
-        },
-        768: {
           items: 2,
         },
-        992: {
+        480: {
+          items: 2,
+        },
+        768: {
           items: 3,
+        },
+        992: {
+          items: 4,
+        },
+        1440: {
+          items: 5,
         },
       },
     });

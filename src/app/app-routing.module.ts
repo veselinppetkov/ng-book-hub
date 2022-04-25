@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: '', component: IntroComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'wishlist', component: WishlistComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/:id', component: ProfileComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'cart', component: CartComponent },
   { path: 'product', component: ProductComponent },

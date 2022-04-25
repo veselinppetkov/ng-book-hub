@@ -11,8 +11,8 @@
 <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
   <div class="container">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Shop</a></li>
+      <li class="breadcrumb-item"><a routerLink="index.html">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="#">Shop</a></li>
       <li class="breadcrumb-item active" aria-current="page">My Account</li>
     </ol>
   </div>
@@ -31,7 +31,7 @@
                 class="nav-link active"
                 id="tab-dashboard-link"
                 data-toggle="tab"
-                href="#tab-dashboard"
+                routerLink="#tab-dashboard"
                 role="tab"
                 aria-controls="tab-dashboard"
                 aria-selected="true"
@@ -43,7 +43,7 @@
                 class="nav-link"
                 id="tab-orders-link"
                 data-toggle="tab"
-                href="#tab-orders"
+                routerLink="#tab-orders"
                 role="tab"
                 aria-controls="tab-orders"
                 aria-selected="false"
@@ -55,7 +55,7 @@
                 class="nav-link"
                 id="tab-downloads-link"
                 data-toggle="tab"
-                href="#tab-downloads"
+                routerLink="#tab-downloads"
                 role="tab"
                 aria-controls="tab-downloads"
                 aria-selected="false"
@@ -67,7 +67,7 @@
                 class="nav-link"
                 id="tab-address-link"
                 data-toggle="tab"
-                href="#tab-address"
+                routerLink="#tab-address"
                 role="tab"
                 aria-controls="tab-address"
                 aria-selected="false"
@@ -79,7 +79,7 @@
                 class="nav-link"
                 id="tab-account-link"
                 data-toggle="tab"
-                href="#tab-account"
+                routerLink="#tab-account"
                 role="tab"
                 aria-controls="tab-account"
                 aria-selected="false"
@@ -87,7 +87,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign Out</a>
+              <a class="nav-link" routerLink="#">Sign Out</a>
             </li>
           </ul>
         </aside>
@@ -105,16 +105,18 @@
                 Hello
                 <span class="font-weight-normal text-dark">User</span> (not
                 <span class="font-weight-normal text-dark">User</span>?
-                <a href="#">Log out</a>)
+                <a routerLink="#">Log out</a>)
                 <br />
                 From your account dashboard you can view your
-                <a href="#tab-orders" class="tab-trigger-link link-underline"
+                <a
+                  routerLink="#tab-orders"
+                  class="tab-trigger-link link-underline"
                   >recent orders</a
                 >, manage your
-                <a href="#tab-address" class="tab-trigger-link"
+                <a routerLink="#tab-address" class="tab-trigger-link"
                   >shipping and billing addresses</a
                 >, and
-                <a href="#tab-account" class="tab-trigger-link"
+                <a routerLink="#tab-account" class="tab-trigger-link"
                   >edit your password and account details</a
                 >.
               </p>
@@ -128,7 +130,7 @@
               aria-labelledby="tab-orders-link"
             >
               <p>No order has been made yet.</p>
-              <a href="category.html" class="btn btn-outline-primary-2"
+              <a routerLink="category.html" class="btn btn-outline-primary-2"
                 ><span>GO SHOP</span><i class="icon-long-arrow-right"></i
               ></a>
             </div>
@@ -141,7 +143,7 @@
               aria-labelledby="tab-downloads-link"
             >
               <p>No downloads available yet.</p>
-              <a href="category.html" class="btn btn-outline-primary-2"
+              <a routerLink="category.html" class="btn btn-outline-primary-2"
                 ><span>GO SHOP</span><i class="icon-long-arrow-right"></i
               ></a>
             </div>
@@ -172,7 +174,7 @@
                         New York, NY 10001<br />
                         1-234-987-6543<br />
                         yourmail@mail.com<br />
-                        <a href="#">Edit <i class="icon-edit"></i></a>
+                        <a routerLink="#">Edit <i class="icon-edit"></i></a>
                       </p>
                     </div>
                     <!-- End .card-body -->
@@ -189,7 +191,7 @@
 
                       <p>
                         You have not set up this type of address yet.<br />
-                        <a href="#">Edit <i class="icon-edit"></i></a>
+                        <a routerLink="#">Edit <i class="icon-edit"></i></a>
                       </p>
                     </div>
                     <!-- End .card-body -->

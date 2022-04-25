@@ -8,6 +8,8 @@ import { Product } from 'src/app/product/product.model';
 })
 export class BestsellerItemComponent implements OnInit {
   @Input() bestseller: Product = null!;
+  @Input() index: number = 0!;
+
   // rating: number = this.bestseller.rating * 20;
 
   constructor() { }

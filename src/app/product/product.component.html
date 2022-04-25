@@ -2,15 +2,17 @@
   <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
     <div class="container d-flex align-items-center">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Products</a></li>
-        <li class="breadcrumb-item active" aria-current="page">BOOK NAME</li>
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/shop">Products</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ product.title }}
+        </li>
       </ol>
 
       <nav class="product-pager ml-auto" aria-label="Product">
         <a
           class="product-pager-link product-pager-prev"
-          href="#"
+          routerLink="#"
           aria-label="Previous"
           tabindex="-1"
         >
@@ -20,7 +22,7 @@
 
         <a
           class="product-pager-link product-pager-next"
-          href="#"
+          routerLink="#"
           aria-label="Next"
           tabindex="-1"
         >
@@ -44,13 +46,13 @@
                 <figure class="product-main-image">
                   <img
                     id="product-zoom"
-                    src="https://images-na.ssl-images-amazon.com/images/I/81x6aLIfbHL.jpg"
-                    data-zoom-image="https://images-na.ssl-images-amazon.com/images/I/81x6aLIfbHL.jpg"
+                    src=" {{ product.cover }}"
+                    data-zoom-image="#"
                     alt="product image"
                   />
 
                   <a
-                    href="#"
+                    routerLink="#"
                     id="btn-product-gallery"
                     class="btn-product-gallery"
                   >
@@ -62,7 +64,7 @@
                 <div id="product-zoom-gallery" class="product-image-gallery">
                   <a
                     class="product-gallery-item active"
-                    href="#"
+                    routerLink="#"
                     data-image="https://images-na.ssl-images-amazon.com/images/I/81x6aLIfbHL.jpg"
                     data-zoom-image=".https://images-na.ssl-images-amazon.com/images/I/81x6aLIfbHL.jpg"
                   >
@@ -74,7 +76,7 @@
 
                   <a
                     class="product-gallery-item"
-                    href="#"
+                    routerLink="#"
                     data-image="../../assets/images/products/single/2.jpg"
                     data-zoom-image="../../assets/images/products/single/2-big.jpg"
                   >
@@ -86,7 +88,7 @@
 
                   <a
                     class="product-gallery-item"
-                    href="#"
+                    routerLink="#"
                     data-image="../../assets/images/products/single/3.jpg"
                     data-zoom-image="../../assets/images/products/single/3-big.jpg"
                   >
@@ -98,7 +100,7 @@
 
                   <a
                     class="product-gallery-item"
-                    href="#"
+                    routerLink="#"
                     data-image="../../assets/images/products/single/4.jpg"
                     data-zoom-image="../../assets/images/products/single/4-big.jpg"
                   >
@@ -118,7 +120,7 @@
 
           <div class="col-md-6">
             <div class="product-details">
-              <h1 class="product-title">Becoming Michelle Obama</h1>
+              <h1 class="product-title">{{ product.title }}</h1>
               <!-- End .product-title -->
 
               <div class="ratings-container">
@@ -129,24 +131,19 @@
                 <!-- End .ratings -->
                 <a
                   class="ratings-text"
-                  href="#product-review-link"
+                  routerLink="#product-review-link"
                   id="review-link"
                   >( 2 Reviews )</a
                 >
               </div>
               <!-- End .rating-container -->
 
-              <div class="product-price">$24.00</div>
+              <div class="product-price">${{ product.price }}</div>
               <!-- End .product-price -->
 
               <div class="product-content">
                 <p>
-                  Michelle Robinson was born on the South Side of Chicago. From
-                  her modest beginnings, she would become Michelle Obama, the
-                  inspiring and powerful First Lady of the United States, when
-                  her husband, Barack Obama, was elected the forty-fourth
-                  president. They would be the first Black First Family in the
-                  White House and serve the country for two terms.
+                  {{ product.description }}
                 </p>
               </div>
               <!-- End .product-content -->
@@ -171,12 +168,15 @@
               <!-- End .details-filter-row -->
 
               <div class="product-details-action">
-                <a href="#" class="btn-product btn-cart"
+                <a routerLink="#" class="btn-product btn-cart"
                   ><span>add to cart</span></a
                 >
 
                 <div class="details-action-wrapper">
-                  <a href="#" class="btn-product btn-wishlist" title="Wishlist"
+                  <a
+                    routerLink="#"
+                    class="btn-product btn-wishlist"
+                    title="Wishlist"
                     ><span>Add to Wishlist</span></a
                   >
                 </div>
@@ -187,35 +187,36 @@
               <div class="product-details-footer">
                 <div class="product-cat">
                   <span>Category:</span>
-                  <a href="#">Biography</a>, <a href="#">Drama</a>
+                  <a routerLink="#">{{ product.category }}</a
+                  >, <a routerLink="#">Drama</a>
                 </div>
                 <!-- End .product-cat -->
 
                 <div class="social-icons social-icons-sm">
                   <span class="social-label">Share:</span>
                   <a
-                    href="#"
+                    routerLink="#"
                     class="social-icon"
                     title="Facebook"
                     target="_blank"
                     ><i class="icon-facebook-f"></i
                   ></a>
                   <a
-                    href="#"
+                    routerLink="#"
                     class="social-icon"
                     title="Twitter"
                     target="_blank"
                     ><i class="icon-twitter"></i
                   ></a>
                   <a
-                    href="#"
+                    routerLink="#"
                     class="social-icon"
                     title="Instagram"
                     target="_blank"
                     ><i class="icon-instagram"></i
                   ></a>
                   <a
-                    href="#"
+                    routerLink="#"
                     class="social-icon"
                     title="Pinterest"
                     target="_blank"
@@ -240,7 +241,7 @@
               class="nav-link active"
               id="product-desc-link"
               data-toggle="tab"
-              href="#product-desc-tab"
+              routerLink="#product-desc-tab"
               role="tab"
               aria-controls="product-desc-tab"
               aria-selected="true"
@@ -252,7 +253,7 @@
               class="nav-link"
               id="product-review-link"
               data-toggle="tab"
-              href="#product-review-tab"
+              routerLink="#product-review-tab"
               role="tab"
               aria-controls="product-review-tab"
               aria-selected="false"
@@ -270,27 +271,10 @@
             <div class="product-desc-content">
               <h3>Product Information</h3>
               <p>
-                Growing up, Michelle and her older brother, Craig, shared a
-                bedroom in their family’s upstairs apartment in her great-aunt’s
-                house. Her parents, Fraser and Marian, poured their love and
-                energy into their children. Michelle’s beloved dad taught his
-                kids to work hard, keep their word, and remember to laugh. Her
-                mom showed them how to think for themselves, use their voice,
-                and be unafraid. But life soon took her far from home. With
-                determination, carefully made plans, and the desire to achieve,
-                Michelle was eager to expand the sphere of her life from her
-                schooling in Chicago. She went to Princeton University, where
-                she learned what it felt like to be the only Black woman in the
-                room. She then went to Harvard Law School, and after graduating
-                returned to Chicago and became a high-powered lawyer. Her plans
-                changed, however, when she met and fell in love with Barack
-                Obama.
+                {{ product.description }}
               </p>
               <ul>
-                <li>
-                  Nunc nec porttitor turpis. In eu risus enim. In vitae mollis
-                  elit.
-                </li>
+                <li>IT WORKS!</li>
                 <li>Vivamus finibus vel mauris ut vehicula.</li>
                 <li>
                   Nullam a magna porttitor, dictum risus nec, faucibus sapien.
@@ -355,11 +339,11 @@
               <p>
                 We deliver to over 100 countries around the world. For full
                 details of the delivery options we offer, please view our
-                <a href="#">Delivery information</a><br />
+                <a routerLink="#">Delivery information</a><br />
                 We hope you’ll love every purchase, but if you ever need to
                 return an item you can do so within a month of receipt. For full
                 details of how to make a return, please view our
-                <a href="#">Returns information</a>
+                <a routerLink="#">Returns information</a>
               </p>
             </div>
             <!-- End .product-desc-content -->
@@ -376,7 +360,7 @@
               <div class="review">
                 <div class="row no-gutters">
                   <div class="col-auto">
-                    <h4><a href="#">Samanta J.</a></h4>
+                    <h4><a routerLink="#">Samanta J.</a></h4>
                     <div class="ratings-container">
                       <div class="ratings">
                         <div class="ratings-val" style="width: 80%"></div>
@@ -403,8 +387,10 @@
                     <!-- End .review-content -->
 
                     <div class="review-action">
-                      <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
-                      <a href="#"
+                      <a routerLink="#"
+                        ><i class="icon-thumbs-up"></i>Helpful (2)</a
+                      >
+                      <a routerLink="#"
                         ><i class="icon-thumbs-down"></i>Unhelpful (0)</a
                       >
                     </div>
@@ -419,7 +405,7 @@
               <div class="review">
                 <div class="row no-gutters">
                   <div class="col-auto">
-                    <h4><a href="#">John Doe</a></h4>
+                    <h4><a routerLink="#">John Doe</a></h4>
                     <div class="ratings-container">
                       <div class="ratings">
                         <div class="ratings-val" style="width: 100%"></div>
@@ -445,8 +431,10 @@
                     <!-- End .review-content -->
 
                     <div class="review-action">
-                      <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>
-                      <a href="#"
+                      <a routerLink="#"
+                        ><i class="icon-thumbs-up"></i>Helpful (0)</a
+                      >
+                      <a routerLink="#"
                         ><i class="icon-thumbs-down"></i>Unhelpful (0)</a
                       >
                     </div>
@@ -501,7 +489,7 @@
         <div class="product product-7 text-center">
           <figure class="product-media">
             <span class="product-label label-new">New</span>
-            <a href="product.html">
+            <a routerLink="product.html">
               <img
                 src="../../assets/images/products/product-4.jpg"
                 alt="Product image"
@@ -510,23 +498,28 @@
             </a>
 
             <div class="product-action-vertical">
-              <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-wishlist btn-expandable"
                 ><span>add to wishlist</span></a
               >
               <a
-                href="popup/quickView.html"
+                routerLink="popup/quickView.html"
                 class="btn-product-icon btn-quickview"
                 title="Quick view"
                 ><span>Quick view</span></a
               >
-              <a href="#" class="btn-product-icon btn-compare" title="Compare"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-compare"
+                title="Compare"
                 ><span>Compare</span></a
               >
             </div>
             <!-- End .product-action-vertical -->
 
             <div class="product-action">
-              <a href="#" class="btn-product btn-cart"
+              <a routerLink="#" class="btn-product btn-cart"
                 ><span>add to cart</span></a
               >
             </div>
@@ -536,11 +529,13 @@
 
           <div class="product-body">
             <div class="product-cat">
-              <a href="#">Women</a>
+              <a routerLink="#">Women</a>
             </div>
             <!-- End .product-cat -->
             <h3 class="product-title">
-              <a href="product.html">Brown paperbag waist <br />pencil skirt</a>
+              <a routerLink="product.html"
+                >Brown paperbag waist <br />pencil skirt</a
+              >
             </h3>
             <!-- End .product-title -->
             <div class="product-price">$60.00</div>
@@ -556,20 +551,20 @@
             <!-- End .rating-container -->
 
             <div class="product-nav product-nav-thumbs">
-              <a href="#" class="active">
+              <a routerLink="#" class="active">
                 <img
                   src="../../assets/images/products/product-4-thumb.jpg"
                   alt="product desc"
                 />
               </a>
-              <a href="#">
+              <a routerLink="#">
                 <img
                   src="../../assets/images/products/product-4-2-thumb.jpg"
                   alt="product desc"
                 />
               </a>
 
-              <a href="#">
+              <a routerLink="#">
                 <img
                   src="../../assets/images/products/product-4-3-thumb.jpg"
                   alt="product desc"
@@ -585,7 +580,7 @@
         <div class="product product-7 text-center">
           <figure class="product-media">
             <span class="product-label label-out">Out of Stock</span>
-            <a href="product.html">
+            <a routerLink="product.html">
               <img
                 src="../../assets/images/products/product-6.jpg"
                 alt="Product image"
@@ -594,23 +589,28 @@
             </a>
 
             <div class="product-action-vertical">
-              <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-wishlist btn-expandable"
                 ><span>add to wishlist</span></a
               >
               <a
-                href="popup/quickView.html"
+                routerLink="popup/quickView.html"
                 class="btn-product-icon btn-quickview"
                 title="Quick view"
                 ><span>Quick view</span></a
               >
-              <a href="#" class="btn-product-icon btn-compare" title="Compare"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-compare"
+                title="Compare"
                 ><span>Compare</span></a
               >
             </div>
             <!-- End .product-action-vertical -->
 
             <div class="product-action">
-              <a href="#" class="btn-product btn-cart"
+              <a routerLink="#" class="btn-product btn-cart"
                 ><span>add to cart</span></a
               >
             </div>
@@ -620,11 +620,11 @@
 
           <div class="product-body">
             <div class="product-cat">
-              <a href="#">Jackets</a>
+              <a routerLink="#">Jackets</a>
             </div>
             <!-- End .product-cat -->
             <h3 class="product-title">
-              <a href="product.html">Khaki utility boiler jumpsuit</a>
+              <a routerLink="product.html">Khaki utility boiler jumpsuit</a>
             </h3>
             <!-- End .product-title -->
             <div class="product-price">
@@ -648,7 +648,7 @@
         <div class="product product-7 text-center">
           <figure class="product-media">
             <span class="product-label label-top">Top</span>
-            <a href="product.html">
+            <a routerLink="product.html">
               <img
                 src="../../assets/images/products/product-11.jpg"
                 alt="Product image"
@@ -657,23 +657,28 @@
             </a>
 
             <div class="product-action-vertical">
-              <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-wishlist btn-expandable"
                 ><span>add to wishlist</span></a
               >
               <a
-                href="popup/quickView.html"
+                routerLink="popup/quickView.html"
                 class="btn-product-icon btn-quickview"
                 title="Quick view"
                 ><span>Quick view</span></a
               >
-              <a href="#" class="btn-product-icon btn-compare" title="Compare"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-compare"
+                title="Compare"
                 ><span>Compare</span></a
               >
             </div>
             <!-- End .product-action-vertical -->
 
             <div class="product-action">
-              <a href="#" class="btn-product btn-cart"
+              <a routerLink="#" class="btn-product btn-cart"
                 ><span>add to cart</span></a
               >
             </div>
@@ -683,11 +688,13 @@
 
           <div class="product-body">
             <div class="product-cat">
-              <a href="#">Shoes</a>
+              <a routerLink="#">Shoes</a>
             </div>
             <!-- End .product-cat -->
             <h3 class="product-title">
-              <a href="product.html">Light brown studded Wide fit wedges</a>
+              <a routerLink="product.html"
+                >Light brown studded Wide fit wedges</a
+              >
             </h3>
             <!-- End .product-title -->
             <div class="product-price">$110.00</div>
@@ -703,20 +710,20 @@
             <!-- End .rating-container -->
 
             <div class="product-nav product-nav-thumbs">
-              <a href="#" class="active">
+              <a routerLink="#" class="active">
                 <img
                   src="../../assets/images/products/product-11-thumb.jpg"
                   alt="product desc"
                 />
               </a>
-              <a href="#">
+              <a routerLink="#">
                 <img
                   src="../../assets/images/products/product-11-2-thumb.jpg"
                   alt="product desc"
                 />
               </a>
 
-              <a href="#">
+              <a routerLink="#">
                 <img
                   src="../../assets/images/products/product-11-3-thumb.jpg"
                   alt="product desc"
@@ -731,7 +738,7 @@
 
         <div class="product product-7 text-center">
           <figure class="product-media">
-            <a href="product.html">
+            <a routerLink="product.html">
               <img
                 src="../../assets/images/products/product-10.jpg"
                 alt="Product image"
@@ -740,23 +747,28 @@
             </a>
 
             <div class="product-action-vertical">
-              <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-wishlist btn-expandable"
                 ><span>add to wishlist</span></a
               >
               <a
-                href="popup/quickView.html"
+                routerLink="popup/quickView.html"
                 class="btn-product-icon btn-quickview"
                 title="Quick view"
                 ><span>Quick view</span></a
               >
-              <a href="#" class="btn-product-icon btn-compare" title="Compare"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-compare"
+                title="Compare"
                 ><span>Compare</span></a
               >
             </div>
             <!-- End .product-action-vertical -->
 
             <div class="product-action">
-              <a href="#" class="btn-product btn-cart"
+              <a routerLink="#" class="btn-product btn-cart"
                 ><span>add to cart</span></a
               >
             </div>
@@ -766,11 +778,11 @@
 
           <div class="product-body">
             <div class="product-cat">
-              <a href="#">Jumpers</a>
+              <a routerLink="#">Jumpers</a>
             </div>
             <!-- End .product-cat -->
             <h3 class="product-title">
-              <a href="product.html">Yellow button front tea top</a>
+              <a routerLink="product.html">Yellow button front tea top</a>
             </h3>
             <!-- End .product-title -->
             <div class="product-price">$56.00</div>
@@ -791,7 +803,7 @@
 
         <div class="product product-7 text-center">
           <figure class="product-media">
-            <a href="product.html">
+            <a routerLink="product.html">
               <img
                 src="../../assets/images/products/product-7.jpg"
                 alt="Product image"
@@ -800,23 +812,28 @@
             </a>
 
             <div class="product-action-vertical">
-              <a href="#" class="btn-product-icon btn-wishlist btn-expandable"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-wishlist btn-expandable"
                 ><span>add to wishlist</span></a
               >
               <a
-                href="popup/quickView.html"
+                routerLink="popup/quickView.html"
                 class="btn-product-icon btn-quickview"
                 title="Quick view"
                 ><span>Quick view</span></a
               >
-              <a href="#" class="btn-product-icon btn-compare" title="Compare"
+              <a
+                routerLink="#"
+                class="btn-product-icon btn-compare"
+                title="Compare"
                 ><span>Compare</span></a
               >
             </div>
             <!-- End .product-action-vertical -->
 
             <div class="product-action">
-              <a href="#" class="btn-product btn-cart"
+              <a routerLink="#" class="btn-product btn-cart"
                 ><span>add to cart</span></a
               >
             </div>
@@ -826,11 +843,11 @@
 
           <div class="product-body">
             <div class="product-cat">
-              <a href="#">Jeans</a>
+              <a routerLink="#">Jeans</a>
             </div>
             <!-- End .product-cat -->
             <h3 class="product-title">
-              <a href="product.html">Blue utility pinafore denim dress</a>
+              <a routerLink="product.html">Blue utility pinafore denim dress</a>
             </h3>
             <!-- End .product-title -->
             <div class="product-price">$76.00</div>
