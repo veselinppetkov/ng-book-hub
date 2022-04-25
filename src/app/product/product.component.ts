@@ -10,9 +10,12 @@ import { ProductService } from './product.service';
 export class ProductComponent implements OnInit {
   product: Product = null!;
   id: number = 0!;
+  rating: string = null!;
 
-  constructor(private productService: ProductService,
+  constructor(
+    private productService: ProductService,
     private route: ActivatedRoute) { }
+
 
   ngOnInit() {
     this.route.params
@@ -20,9 +23,12 @@ export class ProductComponent implements OnInit {
         (params: Params) => {
           console.log(params);
           this.id = +params['id'];
-          this.product = this.productService.getProduct(this.id);
+          this.product = this.productService.getProductById(this.id)!;
+          console.log(this.product)
         }
       );
+
+    this.rating = "width: " + (this.product.rating * 20) + '%';
   }
 
 }

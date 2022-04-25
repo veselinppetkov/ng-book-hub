@@ -25,6 +25,11 @@ export class ProductService {
         return this.products[index];
     }
 
+    getProductById(id: number) {
+        console.log(this.products);
+        return this.products.find((p) => p.book_id == id);
+    }
+
     // addIngredientsToShoppingList(ingredients: Ingredient[]) {
     //     this.slService.addIngredients(ingredients);
     // } // TODO

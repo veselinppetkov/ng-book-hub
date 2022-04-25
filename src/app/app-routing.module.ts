@@ -15,10 +15,10 @@ const routes: Routes = [
   { path: '', component: IntroComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'wishlist', component: WishlistComponent },
-  { path: 'profile/:id', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'product', component: ProductComponent },
+  { path: 'product/:id', component: ProductComponent },
   { path: 'shop', component: ShopComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
