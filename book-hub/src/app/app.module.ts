@@ -24,6 +24,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { BestsellerItemComponent } from './bestseller/bestseller-item/bestseller-item.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +52,8 @@ import { BestsellerItemComponent } from './bestseller/bestseller-item/bestseller
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    CarouselModule
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '' }, {
     provide: HTTP_INTERCEPTORS,

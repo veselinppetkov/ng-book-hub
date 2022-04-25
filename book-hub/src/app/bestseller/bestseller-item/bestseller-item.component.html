@@ -1,8 +1,7 @@
-<div class="product">
+<ng-template carouselSlide [id]="bestseller.book_id.toString()" class="product">
   <span class="product-label label-sale">Sale</span>
   <figure class="product-media">
     <a href="#">
-      //LINK TO PRODUCT
       <img
         src="{{ bestseller.cover }}"
         alt="Product image"
@@ -20,16 +19,17 @@
     </h3>
     <div class="product-price">
       <span class="new-price">${{ bestseller.price }}</span>
-      <span class="old-price">Was ${{ bestseller.price * 1.2 }}</span>
+      <span class="old-price"
+        >Was ${{ (bestseller.price * 1.2).toFixed(2) }}</span
+      >
     </div>
 
     <div class="product-footer">
       <div class="ratings-container">
         <div class="ratings">
           <div class="ratings-val" style="width: 80%"></div>
-          // TODO RATING
         </div>
-        <span class="ratings-text">( 10 Reviews )</span> // TODO REVIEWS
+        <span class="ratings-text">( 10 Reviews )</span>
       </div>
       <div class="product-action">
         <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
@@ -39,4 +39,4 @@
       </div>
     </div>
   </div>
-</div>
+</ng-template>
