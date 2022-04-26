@@ -104,4 +104,30 @@ setTimeout(function () {
     dots: true,
     margin: 10,
   });
+  $("#my-custom-carousel-3").owlCarousel({
+    nav: false,
+    dots: true,
+    margin: 20,
+    loop: false,
+    responsive: {
+      0: {
+        items: 2,
+      },
+      480: {
+        items: 2,
+      },
+      768: {
+        items: 3,
+      },
+      992: {
+        items: 4,
+      },
+      1200: {
+        items: 3,
+      },
+      1440: {
+        items: 4,
+      },
+    },
+  });
 }, 2000);

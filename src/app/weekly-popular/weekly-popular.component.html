@@ -20,15 +20,15 @@
       >
         <div class="product-big">
           <img
-            src="../../assets/images/demos/demo-20/products/product-big-1-bg.jpg"
+            src="../../assets/images/demos/demo-20/products/product-big-2-bg.jpg"
             alt="product bg img"
           />
 
           <div class="product-wrap">
             <figure class="product-media">
-              <a routerLink="product.html">
+              <a routerLink="/product/58438583">
                 <img
-                  src="../../assets/images/demos/demo-20/products/product-big-1.jpg"
+                  src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1626799802l/58438583.jpg"
                   alt="Product image"
                   class="product-image"
                 />
@@ -38,15 +38,14 @@
 
             <div class="product-body">
               <div class="product-cat">
-                by <a routerLink="#">Becky Albertalli</a> and
-                <a routerLink="#">Adam Silvera</a>
+                by <a routerLink="#">Rebecca Serle</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a routerLink="product.html">What If <br />It's Us.</a>
+                <a routerLink="/product/58438583">One Italian Summer</a>
               </h3>
               <!-- End .product-title -->
-              <div class="product-price">$18.99</div>
+              <div class="product-price">$14.99</div>
               <!-- End .product-price -->
 
               <div class="product-action">
@@ -64,7 +63,7 @@
 
         <div class="product-big">
           <img
-            src="../../assets/images/demos/demo-20/products/product-big-2-bg.jpg"
+            src="../../assets/images/demos/demo-20/products/product-big-1-bg.jpg"
             alt="product bg img"
           />
 
@@ -72,7 +71,7 @@
             <figure class="product-media">
               <a routerLink="product.html">
                 <img
-                  src="../../assets/images/demos/demo-20/products/product-12.jpg"
+                  src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618329605l/56597885.jpg"
                   alt="Product image"
                   class="product-image"
                 />
@@ -82,14 +81,16 @@
 
             <div class="product-body">
               <div class="product-cat">
-                by <a routerLink="#">Nicola Yoon </a>
+                by <a routerLink="#">Sally Rooney</a>
               </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a routerLink="product.html">The Sun Is Also a Star.</a>
+                <a routerLink="/product/56597885"
+                  >Beautiful World, Where Are You</a
+                >
               </h3>
               <!-- End .product-title -->
-              <div class="product-price">$10.99</div>
+              <div class="product-price">$19.99</div>
               <!-- End .product-price -->
 
               <div class="product-action">
@@ -115,40 +116,14 @@
     <div class="col-xl-8">
       <div class="block-wrapper">
         <div
+          id="my-custom-carousel-3"
           class="owl-carousel carousel-equal-height owl-simple"
-          data-toggle="owl"
-          data-owl-options='{
-                                  "nav": false, 
-                                  "dots": true,
-                                  "margin": 20,
-                                  "loop": false,
-                                  "responsive": {
-                                      "0": {
-                                          "items":2
-                                      },
-                                      "480": {
-                                          "items":2
-                                      },
-                                      "768": {
-                                          "items":3
-                                      },
-                                      "992": {
-                                          "items":4
-                                      },
-                                      "1200": {
-                                          "items":3
-                                      },
-                                      "1440": {
-                                          "items":4
-                                      }
-                                  }
-                              }'
         >
-          <div class="product">
+          <div class="product" *ngFor="let product of weekly">
             <figure class="product-media">
               <a routerLink="product.html">
                 <img
-                  src="../../assets/images/demos/demo-20/products/product-6.jpg"
+                  src="{{ product.cover }}"
                   alt="Product image"
                   class="product-image"
                 />
@@ -157,15 +132,15 @@
             <!-- End .product-media -->
 
             <div class="product-body">
-              <div class="product-cat">by <a routerLink="#">John Gray</a></div>
+              <div class="product-cat">
+                by <a routerLink="#">{{ product.author }}</a>
+              </div>
               <!-- End .product-cat -->
               <h3 class="product-title">
-                <a routerLink="product.html"
-                  >The Durrells of Corfu: Exclusive Edition</a
-                >
+                <a routerLink="product.html">{{ product.title }}</a>
               </h3>
               <!-- End .product-title -->
-              <div class="product-price">$24.48</div>
+              <div class="product-price">${{ product.price }}</div>
               <!-- End .product-price -->
 
               <div class="product-footer">
@@ -192,152 +167,7 @@
             </div>
             <!-- End .product-body -->
           </div>
-          <!-- End .product -->
 
-          <div class="product">
-            <figure class="product-media">
-              <a routerLink="product.html">
-                <img
-                  src="../../assets/images/demos/demo-20/products/product-7.jpg"
-                  alt="Product image"
-                  class="product-image"
-                />
-              </a>
-            </figure>
-            <!-- End .product-media -->
-
-            <div class="product-body">
-              <div class="product-cat">by <a routerLink="#">John Gray</a></div>
-              <!-- End .product-cat -->
-              <h3 class="product-title">
-                <a routerLink="product.html"
-                  >The Moon: A History for the Future
-                </a>
-              </h3>
-              <!-- End .product-title -->
-              <div class="product-price">$16.97</div>
-              <!-- End .product-price -->
-
-              <div class="product-footer">
-                <div class="ratings-container">
-                  <div class="ratings">
-                    <div class="ratings-val" style="width: 80%"></div>
-                    <!-- End .ratings-val -->
-                  </div>
-                  <!-- End .ratings -->
-                  <span class="ratings-text">( 5 Reviews )</span>
-                </div>
-                <!-- End .rating-container -->
-                <div class="product-action">
-                  <a routerLink="#" class="btn-product btn-cart"
-                    ><span>add to cart</span></a
-                  >
-                  <a routerLink="#" class="btn-product btn-wishlist"
-                    ><span>Add to Wishlist</span></a
-                  >
-                </div>
-                <!-- End .product-action -->
-              </div>
-              <!-- End .product-footer -->
-            </div>
-            <!-- End .product-body -->
-          </div>
-          <!-- End .product -->
-
-          <div class="product">
-            <figure class="product-media">
-              <a routerLink="product.html">
-                <img
-                  src="../../assets/images/demos/demo-20/products/product-8.jpg"
-                  alt="Product image"
-                  class="product-image"
-                />
-              </a>
-            </figure>
-            <!-- End .product-media -->
-
-            <div class="product-body">
-              <div class="product-cat">by <a routerLink="#">John Gray</a></div>
-              <!-- End .product-cat -->
-              <h3 class="product-title">
-                <a routerLink="product.html">Hard Pushed: A Midwife's Story</a>
-              </h3>
-              <!-- End .product-title -->
-              <div class="product-price">$12.99</div>
-              <!-- End .product-price -->
-
-              <div class="product-footer">
-                <div class="ratings-container">
-                  <div class="ratings">
-                    <div class="ratings-val" style="width: 100%"></div>
-                    <!-- End .ratings-val -->
-                  </div>
-                  <!-- End .ratings -->
-                  <span class="ratings-text">( 4 Reviews )</span>
-                </div>
-                <!-- End .rating-container -->
-                <div class="product-action">
-                  <a routerLink="#" class="btn-product btn-cart"
-                    ><span>add to cart</span></a
-                  >
-                  <a routerLink="#" class="btn-product btn-wishlist"
-                    ><span>Add to Wishlist</span></a
-                  >
-                </div>
-                <!-- End .product-action -->
-              </div>
-              <!-- End .product-footer -->
-            </div>
-            <!-- End .product-body -->
-          </div>
-          <!-- End .product -->
-
-          <div class="product">
-            <figure class="product-media">
-              <a routerLink="product.html">
-                <img
-                  src="../../assets/images/demos/demo-20/products/product-9.jpg"
-                  alt="Product image"
-                  class="product-image"
-                />
-              </a>
-            </figure>
-            <!-- End .product-media -->
-
-            <div class="product-body">
-              <div class="product-cat">by <a routerLink="#">John Gray</a></div>
-              <!-- End .product-cat -->
-              <h3 class="product-title">
-                <a routerLink="product.html">This Lie Will Kill You</a>
-              </h3>
-              <!-- End .product-title -->
-              <div class="product-price">$7.99</div>
-              <!-- End .product-price -->
-
-              <div class="product-footer">
-                <div class="ratings-container">
-                  <div class="ratings">
-                    <div class="ratings-val" style="width: 0%"></div>
-                    <!-- End .ratings-val -->
-                  </div>
-                  <!-- End .ratings -->
-                  <span class="ratings-text">( 0 Reviews )</span>
-                </div>
-                <!-- End .rating-container -->
-                <div class="product-action">
-                  <a routerLink="#" class="btn-product btn-cart"
-                    ><span>add to cart</span></a
-                  >
-                  <a routerLink="#" class="btn-product btn-wishlist"
-                    ><span>Add to Wishlist</span></a
-                  >
-                </div>
-                <!-- End .product-action -->
-              </div>
-              <!-- End .product-footer -->
-            </div>
-            <!-- End .product-body -->
-          </div>
           <!-- End .product -->
         </div>
         <!-- End .owl-carousel -->
