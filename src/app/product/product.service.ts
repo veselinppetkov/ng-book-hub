@@ -21,6 +21,10 @@ export class ProductService {
         return this.products.slice();
     }
 
+    getAllCategories() {
+        return [...new Set(this.products.map(p => p.category))];
+    }
+
 
     getProduct(index: number) {
         return this.products[index];

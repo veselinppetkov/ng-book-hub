@@ -210,7 +210,8 @@
         <div class="header-left">
           <div class="dropdown category-dropdown">
             <a
-              routerLink="#"
+              style="cursor: pointer"
+              (mouseover)="onMouseOver()"
               class="dropdown-toggle"
               role="button"
               data-toggle="dropdown"
@@ -231,15 +232,10 @@
                   <li class="item-lead">
                     <a routerLink="#">New for 2022</a>
                   </li>
-                  <li><a routerLink="#">Art & Photography</a></li>
-                  <li><a routerLink="#">Biography</a></li>
-                  <li><a routerLink="#">Children's Books</a></li>
-                  <li><a routerLink="#">Crafts & Hobbies</a></li>
-                  <li><a routerLink="#">Fiction</a></li>
-                  <li><a routerLink="#">Food & Drink</a></li>
-                  <li><a routerLink="#">Graphic Novels, Anime & Manga</a></li>
-                  <li><a routerLink="#">Health & Fitness Books</a></li>
-                  <li><a routerLink="#">Young Adult</a></li>
+
+                  <li *ngFor="let category of categories">
+                    <a routerLink="shop">{{ category }}</a>
+                  </li>
                 </ul>
                 <!-- End .menu-vertical -->
               </nav>
