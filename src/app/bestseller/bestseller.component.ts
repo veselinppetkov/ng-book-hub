@@ -15,31 +15,6 @@ export class BestsellerComponent implements OnInit, OnDestroy {
   bestsellers: Product[] = []!;
   subscription: Subscription = null!;
 
-  customOptions: OwlOptions = {
-    nav: false,
-    dots: true,
-    margin: 20,
-    loop: false,
-    rewind: true,
-    responsive: {
-      0: {
-        items: 2
-      },
-      480: {
-        items: 2
-      },
-      768: {
-        items: 3
-      },
-      992: {
-        items: 4
-      },
-      1440: {
-        items: 5
-      }
-    }
-  }
-
   constructor(private productService: ProductService) { };
 
   ngOnInit() {
@@ -49,7 +24,7 @@ export class BestsellerComponent implements OnInit, OnDestroy {
           this.bestsellers = bestsellers;
         }
       );
-    this.bestsellers = this.productService.getProducts();
+    this.bestsellers = this.productService.getAllProducts();
   }
 
   onNewBestseller() {

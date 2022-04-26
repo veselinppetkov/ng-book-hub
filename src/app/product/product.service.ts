@@ -17,9 +17,10 @@ export class ProductService {
         this.productsChanged.next(this.products.slice());
     }
 
-    getProducts() {
+    getAllProducts() {
         return this.products.slice();
     }
+
 
     getProduct(index: number) {
         return this.products[index];

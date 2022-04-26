@@ -26,6 +26,7 @@ import { BestsellerItemComponent } from './bestseller/bestseller-item/bestseller
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    GoogleMapsModule
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '' }, {
     provide: HTTP_INTERCEPTORS,

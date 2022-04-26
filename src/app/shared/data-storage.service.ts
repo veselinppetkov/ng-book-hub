@@ -10,7 +10,7 @@ export class DataStorageService {
     constructor(private http: HttpClient, private productService: ProductService) { }
 
     storeProducts() {
-        const products = this.productService.getProducts();
+        const products = this.productService.getAllProducts();
         this.http
             .put(
                 'https://ng-book-hub-default-rtdb.europe-west1.firebasedatabase.app/books.json',

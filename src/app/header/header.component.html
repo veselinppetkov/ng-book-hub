@@ -11,7 +11,7 @@
             <a routerLink="#">Links</a>
             <ul class="dropdown-links">
               <li>
-                <a routerLink="#signin-modal" data-toggle="modal"
+                <a href="#signin-modal" data-toggle="modal"
                   >Sign in / Sign up</a
                 >
               </li>
@@ -274,294 +274,25 @@
 
         <div class="header-center">
           <nav class="main-nav">
-            <ul class="menu sf-arrows">
-              <li class="megamenu-container active">
-                <a routerLink="index.html" class="sf-with-ul">Home</a>
+            <ul class="menu sf">
+              <li class="megamenu-container">
+                <a routerLink="/" routerLinkActive="active">Home</a>
                 <!-- End .megamenu -->
               </li>
               <li>
-                <a routerLink="category.html" class="sf-with-ul">Shop</a>
+                <a routerLink="/shop" routerLinkActive="active">Shop</a>
 
-                <div class="megamenu megamenu-md">
-                  <div class="row no-gutters">
-                    <div class="col-md-8">
-                      <div class="menu-col">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="menu-title">Shop with sidebar</div>
-                            <!-- End .menu-title -->
-                            <ul>
-                              <li>
-                                <a routerLink="category-list.html">Shop List</a>
-                              </li>
-                              <li>
-                                <a routerLink="category-2cols.html"
-                                  >Shop Grid 2 Columns</a
-                                >
-                              </li>
-                              <li>
-                                <a routerLink="category.html"
-                                  >Shop Grid 3 Columns</a
-                                >
-                              </li>
-                              <li>
-                                <a routerLink="category-4cols.html"
-                                  >Shop Grid 4 Columns</a
-                                >
-                              </li>
-                              <li>
-                                <a routerLink="category-market.html"
-                                  ><span
-                                    >Shop Market<span class="tip tip-new"
-                                      >New</span
-                                    ></span
-                                  ></a
-                                >
-                              </li>
-                            </ul>
-
-                            <div class="menu-title">Shop no sidebar</div>
-                            <!-- End .menu-title -->
-                            <ul>
-                              <li>
-                                <a routerLink="category-boxed.html"
-                                  ><span
-                                    >Shop Boxed No Sidebar<span
-                                      class="tip tip-hot"
-                                      >Hot</span
-                                    ></span
-                                  ></a
-                                >
-                              </li>
-                              <li>
-                                <a routerLink="category-fullwidth.html"
-                                  >Shop Fullwidth No Sidebar</a
-                                >
-                              </li>
-                            </ul>
-                          </div>
-                          <!-- End .col-md-6 -->
-
-                          <div class="col-md-6">
-                            <div class="menu-title">Product Category</div>
-                            <!-- End .menu-title -->
-                            <ul>
-                              <li>
-                                <a routerLink="product-category-boxed.html"
-                                  >Product Category Boxed</a
-                                >
-                              </li>
-                              <li>
-                                <a routerLink="product-category-fullwidth.html"
-                                  ><span
-                                    >Product Category Fullwidth<span
-                                      class="tip tip-new"
-                                      >New</span
-                                    ></span
-                                  ></a
-                                >
-                              </li>
-                            </ul>
-                            <div class="menu-title">Shop Pages</div>
-                            <!-- End .menu-title -->
-                            <ul>
-                              <li><a routerLink="cart.html">Cart</a></li>
-                              <li>
-                                <a routerLink="checkout.html">Checkout</a>
-                              </li>
-                              <li>
-                                <a routerLink="wishlist.html">Wishlist</a>
-                              </li>
-                              <li>
-                                <a routerLink="dashboard.html">My Account</a>
-                              </li>
-                              <li><a routerLink="#">Lookbook</a></li>
-                            </ul>
-                          </div>
-                          <!-- End .col-md-6 -->
-                        </div>
-                        <!-- End .row -->
-                      </div>
-                      <!-- End .menu-col -->
-                    </div>
-                    <!-- End .col-md-8 -->
-
-                    <div class="col-md-4">
-                      <div class="banner banner-overlay">
-                        <a
-                          routerLink="category.html"
-                          class="banner banner-menu"
-                        >
-                          <img
-                            src="../../assets/images/menu/banner-1.jpg"
-                            alt="Banner"
-                          />
-
-                          <div class="banner-content banner-content-top">
-                            <div class="banner-title text-white">
-                              Last <br />Chance<br /><span
-                                ><strong>Sale</strong></span
-                              >
-                            </div>
-                            <!-- End .banner-title -->
-                          </div>
-                          <!-- End .banner-content -->
-                        </a>
-                      </div>
-                      <!-- End .banner banner-overlay -->
-                    </div>
-                    <!-- End .col-md-4 -->
-                  </div>
-                  <!-- End .row -->
-                </div>
                 <!-- End .megamenu megamenu-md -->
               </li>
               <li>
-                <a routerLink="product.html" class="sf-with-ul">Product</a>
+                <a routerLink="/contact" routerLinkActive="active">Contact</a>
 
-                <div class="megamenu megamenu-sm">
-                  <div class="row no-gutters">
-                    <div class="col-md-6">
-                      <div class="menu-col">
-                        <div class="menu-title">Product Details</div>
-                        <!-- End .menu-title -->
-                        <ul>
-                          <li><a routerLink="product.html">Default</a></li>
-                          <li>
-                            <a routerLink="product-centered.html">Centered</a>
-                          </li>
-                          <li>
-                            <a routerLink="product-extended.html"
-                              ><span
-                                >Extended Info<span class="tip tip-new"
-                                  >New</span
-                                ></span
-                              ></a
-                            >
-                          </li>
-                          <li>
-                            <a routerLink="product-gallery.html">Gallery</a>
-                          </li>
-                          <li>
-                            <a routerLink="product-sticky.html">Sticky Info</a>
-                          </li>
-                          <li>
-                            <a routerLink="product-sidebar.html"
-                              >Boxed With Sidebar</a
-                            >
-                          </li>
-                          <li>
-                            <a routerLink="product-fullwidth.html"
-                              >Full Width</a
-                            >
-                          </li>
-                          <li>
-                            <a routerLink="product-masonry.html"
-                              >Masonry Sticky Info</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                      <!-- End .menu-col -->
-                    </div>
-                    <!-- End .col-md-6 -->
-
-                    <div class="col-md-6">
-                      <div class="banner banner-overlay">
-                        <a routerLink="category.html">
-                          <img
-                            src="../../assets/images/menu/banner-2.jpg"
-                            alt="Banner"
-                          />
-
-                          <div class="banner-content banner-content-bottom">
-                            <div class="banner-title text-white">
-                              New Trends<br /><span
-                                ><strong>spring 2019</strong></span
-                              >
-                            </div>
-                            <!-- End .banner-title -->
-                          </div>
-                          <!-- End .banner-content -->
-                        </a>
-                      </div>
-                      <!-- End .banner -->
-                    </div>
-                    <!-- End .col-md-6 -->
-                  </div>
-                  <!-- End .row -->
-                </div>
-                <!-- End .megamenu megamenu-sm -->
+                <!-- End .megamenu megamenu-md -->
               </li>
               <li>
-                <a routerLink="#" class="sf-with-ul">Pages</a>
+                <a routerLink="/about" routerLinkActive="active">About</a>
 
-                <ul>
-                  <li>
-                    <a routerLink="about.html" class="sf-with-ul">About</a>
-
-                    <ul>
-                      <li><a routerLink="about.html">About 01</a></li>
-                      <li><a routerLink="about-2.html">About 02</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a routerLink="contact.html" class="sf-with-ul">Contact</a>
-
-                    <ul>
-                      <li><a routerLink="contact.html">Contact 01</a></li>
-                      <li><a routerLink="contact-2.html">Contact 02</a></li>
-                    </ul>
-                  </li>
-                  <li><a routerLink="login.html">Login</a></li>
-                  <li><a routerLink="faq.html">FAQs</a></li>
-                  <li><a routerLink="404.html">Error 404</a></li>
-                  <li><a routerLink="coming-soon.html">Coming Soon</a></li>
-                </ul>
-              </li>
-              <li>
-                <a routerLink="elements-list.html" class="sf-with-ul"
-                  >Elements</a
-                >
-
-                <ul>
-                  <li><a routerLink="elements-products.html">Products</a></li>
-                  <li>
-                    <a routerLink="elements-typography.html">Typography</a>
-                  </li>
-                  <li><a routerLink="elements-titles.html">Titles</a></li>
-                  <li><a routerLink="elements-banners.html">Banners</a></li>
-                  <li>
-                    <a routerLink="elements-product-category.html"
-                      >Product Category</a
-                    >
-                  </li>
-                  <li>
-                    <a routerLink="elements-video-banners.html"
-                      >Video Banners</a
-                    >
-                  </li>
-                  <li><a routerLink="elements-buttons.html">Buttons</a></li>
-                  <li>
-                    <a routerLink="elements-accordions.html">Accordions</a>
-                  </li>
-                  <li><a routerLink="elements-tabs.html">Tabs</a></li>
-                  <li>
-                    <a routerLink="elements-testimonials.html">Testimonials</a>
-                  </li>
-                  <li>
-                    <a routerLink="elements-blog-posts.html">Blog Posts</a>
-                  </li>
-                  <li>
-                    <a routerLink="elements-portfolio.html">Portfolio</a>
-                  </li>
-                  <li>
-                    <a routerLink="elements-cta.html">Call to Action</a>
-                  </li>
-                  <li>
-                    <a routerLink="elements-icon-boxes.html">Icon Boxes</a>
-                  </li>
-                </ul>
+                <!-- End .megamenu megamenu-md -->
               </li>
             </ul>
             <!-- End .menu -->
