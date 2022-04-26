@@ -31,6 +31,12 @@ export class ProductService {
         return this.products.find((p) => p.book_id == id);
     }
 
+    getProductByTitle(title: string) {
+        return this.products.find((p) => p.title.toLocaleLowerCase().includes(title.toLocaleLowerCase()));
+    }
+
+
+
     // addIngredientsToShoppingList(ingredients: Ingredient[]) {
     //     this.slService.addIngredients(ingredients);
     // } // TODO
