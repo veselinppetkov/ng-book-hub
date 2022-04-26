@@ -99,4 +99,9 @@ setTimeout(function () {
       },
     },
   });
+  $("#my-custom-carousel-2").owlCarousel({
+    nav: false,
+    dots: true,
+    margin: 10,
+  });
 }, 2000);
