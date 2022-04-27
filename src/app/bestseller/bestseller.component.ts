@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 import { Subscription } from 'rxjs';
 
@@ -15,6 +16,34 @@ export class BestsellerComponent implements OnInit, OnDestroy {
   subscription: Subscription = null!;
 
   constructor(private productService: ProductService) { };
+
+  customOptions: OwlOptions = {
+    nav: false,
+    dots: true,
+    margin: 20,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    rewind: true,
+    responsive: {
+      0: {
+        items: 2,
+      },
+      480: {
+        items: 2,
+      },
+      768: {
+        items: 3,
+      },
+      992: {
+        items: 4,
+      },
+      1440: {
+        items: 5,
+      },
+    }
+  }
 
   ngOnInit() {
     this.subscription = this.productService.productsChanged
@@ -34,3 +63,4 @@ export class BestsellerComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 }
+

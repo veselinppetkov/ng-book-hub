@@ -13,16 +13,13 @@
           </div>
         </div>
         <!-- CAROUSEL -->
-        <div
-          id="my-custom-carousel"
-          class="owl-carousel carousel-equal-height owl-simple"
-        >
-          <app-bestseller-item
-            *ngFor="let bestsellerItem of bestsellers; let i = index"
-            [bestseller]="bestsellerItem"
-            [index]="i"
-          ></app-bestseller-item>
-        </div>
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let bestseller of bestsellers">
+            <ng-template class="slide" carouselSlide>
+              <app-bestseller-item [bestseller]="bestseller"></app-bestseller-item>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
         <!-- END OF CAROUSEL -->
       </div>
     </div>

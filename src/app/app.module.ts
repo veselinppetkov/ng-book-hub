@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +13,6 @@ import { BestsellerComponent } from './bestseller/bestseller.component';
 import { WeeklyPopularComponent } from './weekly-popular/weekly-popular.component';
 import { AuthModalComponent } from './auth-modal/auth-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthInterceptorService } from './auth-modal/auth.interceptor.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductComponent } from './product/product.component';
 import { ShopComponent } from './shop/shop.component';
@@ -23,12 +22,11 @@ import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { BestsellerItemComponent } from './bestseller/bestseller-item/bestseller-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -56,7 +54,9 @@ import { CoreModule } from './core.module';
     FormsModule,
     AppRoutingModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
