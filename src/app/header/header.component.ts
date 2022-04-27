@@ -9,11 +9,12 @@ import { DataStorageService } from '../shared/data-storage.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   categories: string[] = [];
   subscription: Subscription = null!;
+  userSub: Subscription = null!;
+  isAuthenticated: boolean = false;
 
   constructor(private authService: AuthService, private dateStorageService: DataStorageService, private productService: ProductService, private router: Router) { }
 
@@ -37,6 +38,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.dateStorageService.fetchProducts().subscribe();
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = user ? true : false;
+    });
   }
 
   onMouseOver() {
@@ -49,6 +53,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.userSub.unsubscribe();
   }
 
 

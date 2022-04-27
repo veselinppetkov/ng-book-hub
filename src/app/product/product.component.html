@@ -114,7 +114,8 @@
 
               <div class="details-action-wrapper">
                 <a
-                  routerLink="#"
+                  style="cursor: pointer"
+                  (click)="onWishlist(product.book_id)"
                   class="btn-product btn-wishlist"
                   title="Wishlist"
                   ><span>Add to Wishlist</span></a
@@ -363,8 +364,9 @@
 
           <div class="product-action-vertical">
             <a
-              routerLink="#"
               class="btn-product-icon btn-wishlist btn-expandable"
+              style="cursor: pointer"
+              (click)="onWishlist(product.book_id)"
               ><span>add to wishlist</span></a
             >
             <a

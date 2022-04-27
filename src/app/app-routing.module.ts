@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
 import { IntroComponent } from './intro/intro.component';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RecipesResolverService } from './product/product-resolver.service';
 import { ProductComponent } from './product/product.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ShopComponent } from './shop/shop.component';
@@ -18,13 +19,14 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'product/:id', component: ProductComponent },
+  { path: 'product/:id', resolve: [RecipesResolverService], component: ProductComponent },
   { path: 'shop', component: ShopComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

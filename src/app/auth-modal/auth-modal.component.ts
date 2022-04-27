@@ -32,16 +32,6 @@ export class AuthModalComponent {
 
     authObs = this.authService.login(email, password);
 
-    // authObs.subscribe(resData => {
-    //   console.log(resData);
-    //   this.isLoading = false;
-    //   this.router.navigate(['/'])
-    // }, errorMessage => {
-    //   this.error = errorMessage;
-    //   this.isLoading = false;
-    // }
-    // );
-
     authObs.subscribe({
       next: resData => {
         console.log(resData);
@@ -78,15 +68,6 @@ export class AuthModalComponent {
 
     authObs = this.authService.signup(email, password);
 
-    // authObs.subscribe(resData => {
-    //   console.log(resData);
-    //   this.isLoading = false;
-    //   this.router.navigate(['/'])
-    // }, errorMessage => {
-    //   this.error = errorMessage;
-    //   this.isLoading = false;
-    // }
-    // );
 
     authObs.subscribe({
       next: resData => {

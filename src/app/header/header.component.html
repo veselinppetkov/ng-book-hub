@@ -12,13 +12,18 @@
           <li>
             <a routerLink="/">Links</a>
             <ul class="dropdown-links">
-              <li>
+              <li *ngIf="!isAuthenticated">
                 <a href="#signin-modal" data-toggle="modal"
                   >Sign in / Sign up</a
                 >
               </li>
               <li>
-                <a routerLink="/logout" (click)="onLogout()">Logout</a>
+                <a
+                  routerLink="/logout"
+                  *ngIf="isAuthenticated"
+                  (click)="onLogout()"
+                  >Logout</a
+                >
               </li>
             </ul>
           </li>
@@ -77,7 +82,7 @@
           </form>
         </div>
 
-        <div class="header-dropdown-link">
+        <div class="header-dropdown-link" *ngIf="isAuthenticated">
           <div class="account">
             <a routerLink="/profile" title="My account">
               <div class="icon">

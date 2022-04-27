@@ -17,6 +17,7 @@ export interface AuthResponseData {
     expiresIn: string;
     localId: string;
     registered?: boolean;
+    wishlist: string[];
 }
 
 @Injectable({ providedIn: 'root' })
@@ -43,7 +44,8 @@ export class AuthService {
                         resData.email,
                         resData.localId,
                         resData.idToken,
-                        +resData.expiresIn
+                        +resData.expiresIn,
+                        resData.wishlist
                     );
                 })
             );
@@ -66,7 +68,8 @@ export class AuthService {
                         resData.email,
                         resData.localId,
                         resData.idToken,
-                        +resData.expiresIn
+                        +resData.expiresIn,
+                        resData.wishlist
                     );
                 })
             );
@@ -78,6 +81,7 @@ export class AuthService {
             id: string;
             _token: string;
             _tokenExpirationDate: string;
+            wishlist: string[];
         } = JSON.parse(localStorage.getItem('userData')!);
         if (!userData) {
             return;
@@ -87,7 +91,8 @@ export class AuthService {
             userData.email,
             userData.id,
             userData._token,
-            new Date(userData._tokenExpirationDate)
+            new Date(userData._tokenExpirationDate),
+            userData.wishlist
         );
 
         if (loadedUser.token) {
@@ -119,10 +124,11 @@ export class AuthService {
         email: string,
         userId: string,
         token: string,
-        expiresIn: number
+        expiresIn: number,
+        wishlist: string[] = []
     ) {
         const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-        const user = new User(email, userId, token, expirationDate);
+        const user = new User(email, userId, token, expirationDate, wishlist);
         this.user.next(user);
         this.autoLogout(expiresIn * 1000);
         localStorage.setItem('userData', JSON.stringify(user));

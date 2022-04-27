@@ -31,4 +31,9 @@ export class ProductComponent implements OnInit {
     this.rating = "width: " + (this.product.rating * 20) + '%';
   }
 
+  onWishlist(productId: number) {
+    this.productService.addProductToWishlist(productId);
+    console.log(`This is logged in component`)
+  }
+
 }

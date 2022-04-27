@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth-modal/auth.service';
 import { DataStorageService } from './shared/data-storage.service';
 
 @Component({
@@ -9,10 +10,10 @@ import { DataStorageService } from './shared/data-storage.service';
 export class AppComponent implements OnInit {
   title = 'book-hub';
 
-  constructor(private dataStorageService: DataStorageService) { };
+  constructor(private authService: AuthService) { };
 
   ngOnInit() {
-    this.dataStorageService.fetchProducts().subscribe();
+    this.authService.autoLogin();
   }
 
 

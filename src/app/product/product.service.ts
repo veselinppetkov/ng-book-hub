@@ -50,6 +50,12 @@ export class ProductService {
         this.productsChanged.next(this.products.slice());
     }
 
+    addProductToWishlist(productId: number) {
+        const wishlist = JSON.parse(localStorage.getItem('userData')!).wishlist
+        wishlist.push(productId)
+        console.log(`This is logged in service ` + wishlist)
+    }
+
     updateProduct(index: number, newProduct: Product) {
         this.products[index] = newProduct;
         this.productsChanged.next(this.products.slice());

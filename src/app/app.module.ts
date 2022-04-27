@@ -27,6 +27,8 @@ import { BestsellerItemComponent } from './bestseller/bestseller-item/bestseller
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core.module';
 
 @NgModule({
   declarations: [
@@ -49,19 +51,14 @@ import { GoogleMapsModule } from '@angular/google-maps';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    CarouselModule,
-    GoogleMapsModule
+    SharedModule,
+    CoreModule
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '' }, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorService,
-    multi: true
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
