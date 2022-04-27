@@ -31,6 +31,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     form.reset();
   }
 
+  ngOnChanges() {
+    console.log(`it works!`)
+  }
+
   ngOnInit() {
     this.subscription = this.dateStorageService.fetchProducts().subscribe();
   }

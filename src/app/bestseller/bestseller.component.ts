@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 
 import { Subscription } from 'rxjs';
 
