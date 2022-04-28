@@ -13,99 +13,53 @@
 
   <div class="row">
     <div class="col-xl-4">
-      <div
-        id="my-custom-carousel-2"
-        class="owl-carousel carousel-equal-height owl-simple"
-        data-toggle="owl"
-      >
-        <div class="product-big">
-          <img
-            src="../../assets/images/demos/demo-20/products/product-big-2-bg.jpg"
-            alt="product bg img"
-          />
+      <owl-carousel-o [options]="customOptions">
+        <ng-container>
+          <ng-template class="slide" carouselSlide>
+            <div class="product-big" style="width: 500px; height: 500px">
+              <img
+                src="../../assets/images/demos/demo-20/products/product-big-2-bg.jpg"
+                alt="product bg img"
+              />
 
-          <div class="product-wrap">
-            <figure class="product-media">
-              <a routerLink="/product/58438583">
-                <img
-                  src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1626799802l/58438583.jpg"
-                  alt="Product image"
-                  class="product-image"
-                />
-              </a>
-            </figure>
-            <!-- End .product-media -->
+              <div class="product-wrap">
+                <figure class="product-media">
+                  <a routerLink="/product/58438583">
+                    <img
+                      src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1626799802l/58438583.jpg"
+                      alt="Product image"
+                      class="product-image"
+                    />
+                  </a>
+                </figure>
+                <!-- End .product-media -->
 
-            <div class="product-body">
-              <div class="product-cat">
-                by <a routerLink="#">Rebecca Serle</a>
+                <div class="product-body">
+                  <div class="product-cat">
+                    by <a routerLink="#">Rebecca Serle</a>
+                  </div>
+                  <!-- End .product-cat -->
+                  <h3 class="product-title">
+                    <a routerLink="/product/58438583">One Italian Summer</a>
+                  </h3>
+                  <!-- End .product-title -->
+                  <div class="product-price">$14.99</div>
+                  <!-- End .product-price -->
+
+                  <div class="product-action">
+                    <a routerLink="#" class="btn-product btn-cart"
+                      ><span>add to cart</span></a
+                    >
+                  </div>
+                  <!-- End .product-action -->
+                </div>
+                <!-- End .product-body -->
               </div>
-              <!-- End .product-cat -->
-              <h3 class="product-title">
-                <a routerLink="/product/58438583">One Italian Summer</a>
-              </h3>
-              <!-- End .product-title -->
-              <div class="product-price">$14.99</div>
-              <!-- End .product-price -->
-
-              <div class="product-action">
-                <a routerLink="#" class="btn-product btn-cart"
-                  ><span>add to cart</span></a
-                >
-              </div>
-              <!-- End .product-action -->
+              <!-- End .product-wrap -->
             </div>
-            <!-- End .product-body -->
-          </div>
-          <!-- End .product-wrap -->
-        </div>
-        <!-- End .product-big -->
-
-        <div class="product-big">
-          <img
-            src="../../assets/images/demos/demo-20/products/product-big-1-bg.jpg"
-            alt="product bg img"
-          />
-
-          <div class="product-wrap">
-            <figure class="product-media">
-              <a routerLink="product.html">
-                <img
-                  src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618329605l/56597885.jpg"
-                  alt="Product image"
-                  class="product-image"
-                />
-              </a>
-            </figure>
-            <!-- End .product-media -->
-
-            <div class="product-body">
-              <div class="product-cat">
-                by <a routerLink="#">Sally Rooney</a>
-              </div>
-              <!-- End .product-cat -->
-              <h3 class="product-title">
-                <a routerLink="/product/56597885"
-                  >Beautiful World, Where Are You</a
-                >
-              </h3>
-              <!-- End .product-title -->
-              <div class="product-price">$19.99</div>
-              <!-- End .product-price -->
-
-              <div class="product-action">
-                <a routerLink="#" class="btn-product btn-cart"
-                  ><span>add to cart</span></a
-                >
-              </div>
-              <!-- End .product-action -->
-            </div>
-            <!-- End .product-body -->
-          </div>
-          <!-- End .product-wrap -->
-        </div>
-        <!-- End .product-big -->
-      </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
       <!-- End .owl-carousel -->
 
       <div class="mb-3 d-xl-none"></div>
@@ -115,61 +69,68 @@
 
     <div class="col-xl-8">
       <div class="block-wrapper">
-        <div
-          id="my-custom-carousel-3"
-          class="owl-carousel carousel-equal-height owl-simple"
-        >
-          <div class="product" *ngFor="let product of weekly">
-            <figure class="product-media">
-              <a routerLink="product.html">
-                <img
-                  src="{{ product.cover }}"
-                  alt="Product image"
-                  class="product-image"
-                />
-              </a>
-            </figure>
-            <!-- End .product-media -->
+        <!-- NEW CAROUSEL-->
+        <owl-carousel-o [options]="customOptions2">
+          <ng-container>
+            <ng-template
+              class="slide"
+              carouselSlide
+              *ngFor="let product of weekly"
+            >
+              <div class="product" style="width: 210px; height: 360px">
+                <figure class="product-media">
+                  <a routerLink="product.html">
+                    <img
+                      src="{{ product.cover }}"
+                      alt="Product image"
+                      class="product-image"
+                    />
+                  </a>
+                </figure>
+                <!-- End .product-media -->
 
-            <div class="product-body">
-              <div class="product-cat">
-                by <a routerLink="#">{{ product.author }}</a>
-              </div>
-              <!-- End .product-cat -->
-              <h3 class="product-title">
-                <a routerLink="product.html">{{ product.title }}</a>
-              </h3>
-              <!-- End .product-title -->
-              <div class="product-price">${{ product.price }}</div>
-              <!-- End .product-price -->
-
-              <div class="product-footer">
-                <div class="ratings-container">
-                  <div class="ratings">
-                    <div class="ratings-val" style="width: 80%"></div>
-                    <!-- End .ratings-val -->
+                <div class="product-body">
+                  <div class="product-cat">
+                    by <a routerLink="#">{{ product.author }}</a>
                   </div>
-                  <!-- End .ratings -->
-                  <span class="ratings-text">( 5 Reviews )</span>
-                </div>
-                <!-- End .rating-container -->
-                <div class="product-action">
-                  <a routerLink="#" class="btn-product btn-cart"
-                    ><span>add to cart</span></a
-                  >
-                  <a routerLink="#" class="btn-product btn-wishlist"
-                    ><span>Add to Wishlist</span></a
-                  >
-                </div>
-                <!-- End .product-action -->
-              </div>
-              <!-- End .product-footer -->
-            </div>
-            <!-- End .product-body -->
-          </div>
+                  <!-- End .product-cat -->
+                  <h3 class="product-title">
+                    <a routerLink="product.html">{{ product.title }}</a>
+                  </h3>
+                  <!-- End .product-title -->
+                  <div class="product-price">${{ product.price }}</div>
+                  <!-- End .product-price -->
 
-          <!-- End .product -->
-        </div>
+                  <div class="product-footer">
+                    <div class="ratings-container">
+                      <div class="ratings">
+                        <div class="ratings-val" style="width: 80%"></div>
+                        <!-- End .ratings-val -->
+                      </div>
+                      <!-- End .ratings -->
+                      <span class="ratings-text">( 5 Reviews )</span>
+                    </div>
+                    <!-- End .rating-container -->
+                    <div class="product-action">
+                      <a routerLink="#" class="btn-product btn-cart"
+                        ><span>add to cart</span></a
+                      >
+                      <a routerLink="#" class="btn-product btn-wishlist"
+                        ><span>Add to Wishlist</span></a
+                      >
+                    </div>
+                    <!-- End .product-action -->
+                  </div>
+                  <!-- End .product-footer -->
+                </div>
+                <!-- End .product-body -->
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+        <!-- End of NEW .owl-carousel -->
+        <!-- OLD CAROUSEL-->
+
         <!-- End .owl-carousel -->
       </div>
       <!-- End .block-wrapper -->
