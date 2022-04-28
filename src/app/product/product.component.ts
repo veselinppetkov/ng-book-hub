@@ -11,6 +11,7 @@ export class ProductComponent implements OnInit {
   product: Product = null!;
   id: number = 0!;
   rating: string = null!;
+  addedToWishList: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -32,8 +33,7 @@ export class ProductComponent implements OnInit {
   }
 
   onWishlist(productId: number) {
-    this.productService.addProductToWishlist(productId);
-    console.log(`This is logged in component`)
+    this.productService.addProductToWishlist(productId)
   }
 
 }

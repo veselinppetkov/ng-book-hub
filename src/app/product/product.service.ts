@@ -51,10 +51,19 @@ export class ProductService {
     }
 
     addProductToWishlist(productId: number) {
-        const wishlist = JSON.parse(localStorage.getItem('userData')!).wishlist
-        wishlist.push(productId)
-        console.log(`This is logged in service ` + wishlist)
+        const wishlist: number[] = [];
+
+        if (!localStorage.getItem('wishlist')) {
+            wishlist.push(productId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist))
+        } else {
+            const watchlistLocal = JSON.parse(localStorage.getItem('wishlist')!)
+            watchlistLocal.push(productId)
+            localStorage.setItem('wishlist', JSON.stringify(watchlistLocal))
+        }
+
     }
+
 
     updateProduct(index: number, newProduct: Product) {
         this.products[index] = newProduct;

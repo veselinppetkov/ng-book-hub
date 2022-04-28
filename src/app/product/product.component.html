@@ -115,6 +115,7 @@
               <div class="details-action-wrapper">
                 <a
                   style="cursor: pointer"
+                  *ngIf="!addedToWishList"
                   (click)="onWishlist(product.book_id)"
                   class="btn-product btn-wishlist"
                   title="Wishlist"
@@ -456,6 +457,7 @@
 
           <div class="product-action-vertical">
             <a
+              *ngIf="!addedToWishList"
               routerLink="#"
               class="btn-product-icon btn-wishlist btn-expandable"
               ><span>add to wishlist</span></a
@@ -524,6 +526,7 @@
 
           <div class="product-action-vertical">
             <a
+              *ngIf="!addedToWishList"
               routerLink="#"
               class="btn-product-icon btn-wishlist btn-expandable"
               ><span>add to wishlist</span></a
@@ -612,6 +615,7 @@
 
           <div class="product-action-vertical">
             <a
+              *ngIf="!addedToWishList"
               routerLink="#"
               class="btn-product-icon btn-wishlist btn-expandable"
               ><span>add to wishlist</span></a
@@ -677,6 +681,7 @@
 
           <div class="product-action-vertical">
             <a
+              *ngIf="!addedToWishList"
               routerLink="#"
               class="btn-product-icon btn-wishlist btn-expandable"
               ><span>add to wishlist</span></a
