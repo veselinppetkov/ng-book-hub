@@ -1,15 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { Product } from 'src/app/product/product.model';
-import { ProductService } from 'src/app/product/product.service';
+import { Product } from '../../product/product.model';
+import { ProductService } from '../../product/product.service';
 
 @Component({
-  selector: 'app-bestseller-item',
-  templateUrl: './bestseller-item.component.html',
+  selector: 'app-weekly-popular-item',
+  templateUrl: './weekly-popular-item.component.html',
 })
-export class BestsellerItemComponent implements OnInit {
-  @Input() bestseller: Product = null!;
-  @Input() index: number = 0!;
+export class WeeklyPopularItemComponent implements OnInit {
+  @Input() product: Product = null!;
   isAddedToWishlist = false;
 
   rating: string = 'width: 100%';
@@ -17,7 +15,7 @@ export class BestsellerItemComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.rating = "width: " + (this.bestseller.rating * 20) + '%';
+    this.rating = "width: " + (this.product.rating * 20) + '%';
   }
 
   onWishlist(bookId: number) {

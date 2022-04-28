@@ -36,7 +36,7 @@
 
                 <div class="product-body">
                   <div class="product-cat">
-                    by <a routerLink="#">Rebecca Serle</a>
+                    by <a routerLink="/product/58438583">Rebecca Serle</a>
                   </div>
                   <!-- End .product-cat -->
                   <h3 class="product-title">
@@ -47,7 +47,9 @@
                   <!-- End .product-price -->
 
                   <div class="product-action">
-                    <a routerLink="#" class="btn-product btn-cart"
+                    <a
+                      routerLink="/product/58438583"
+                      class="btn-product btn-cart"
                       ><span>add to cart</span></a
                     >
                   </div>
@@ -77,54 +79,9 @@
               carouselSlide
               *ngFor="let product of weekly"
             >
-              <div class="product" style="width: 210px; height: 360px">
-                <figure class="product-media">
-                  <a routerLink="product.html">
-                    <img
-                      src="{{ product.cover }}"
-                      alt="Product image"
-                      class="product-image"
-                    />
-                  </a>
-                </figure>
-                <!-- End .product-media -->
-
-                <div class="product-body">
-                  <div class="product-cat">
-                    by <a routerLink="#">{{ product.author }}</a>
-                  </div>
-                  <!-- End .product-cat -->
-                  <h3 class="product-title">
-                    <a routerLink="product.html">{{ product.title }}</a>
-                  </h3>
-                  <!-- End .product-title -->
-                  <div class="product-price">${{ product.price }}</div>
-                  <!-- End .product-price -->
-
-                  <div class="product-footer">
-                    <div class="ratings-container">
-                      <div class="ratings">
-                        <div class="ratings-val" style="width: 80%"></div>
-                        <!-- End .ratings-val -->
-                      </div>
-                      <!-- End .ratings -->
-                      <span class="ratings-text">( 5 Reviews )</span>
-                    </div>
-                    <!-- End .rating-container -->
-                    <div class="product-action">
-                      <a routerLink="#" class="btn-product btn-cart"
-                        ><span>add to cart</span></a
-                      >
-                      <a routerLink="#" class="btn-product btn-wishlist"
-                        ><span>Add to Wishlist</span></a
-                      >
-                    </div>
-                    <!-- End .product-action -->
-                  </div>
-                  <!-- End .product-footer -->
-                </div>
-                <!-- End .product-body -->
-              </div>
+              <app-weekly-popular-item
+                [product]="product"
+              ></app-weekly-popular-item>
             </ng-template>
           </ng-container>
         </owl-carousel-o>

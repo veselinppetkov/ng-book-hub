@@ -30,7 +30,7 @@
     <table class="table table-wishlist table-mobile">
       <thead>
         <tr>
-          <th>Product</th>
+          <th>Products</th>
           <th></th>
           <th></th>
           <th>Price</th>
@@ -40,20 +40,17 @@
       </thead>
 
       <tbody>
-        <tr>
+        <tr *ngFor="let item of items">
           <td class="product-col">
             <div class="product">
               <figure class="product-media">
                 <a routerLink="#">
-                  <img
-                    src="../../assets/images/products/table/product-1.jpg"
-                    alt="Product image"
-                  />
+                  <img src="{{ item.cover }}" alt="Product image" />
                 </a>
               </figure>
 
               <h3 class="product-title">
-                <a routerLink="#">Beige knitted elastic runner shoes</a>
+                <a routerLink="#">{{ item.title }}</a>
               </h3>
               <!-- End .product-title -->
             </div>
@@ -62,7 +59,7 @@
           <td></td>
           <td></td>
 
-          <td class="price-col">$84.00</td>
+          <td class="price-col">${{ item.price }}</td>
           <td>
             <a class="btn btn-outline-primary btn-round" style="cursor: pointer"
               >Add to cart</a

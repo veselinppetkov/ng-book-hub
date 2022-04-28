@@ -12,6 +12,7 @@ import { DataStorageService } from '../shared/data-storage.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   categories: string[] = [];
+  wishlistItems: number = 0;
   subscription: Subscription = null!;
   userSub: Subscription = null!;
   isAuthenticated: boolean = false;
@@ -33,11 +34,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnChanges() {
-    console.log(`it works!`)
+    this.wishlistItems = JSON.parse(localStorage.getItem('wishlist')!).length
   }
 
   ngOnInit() {
     this.subscription = this.dateStorageService.fetchProducts().subscribe();
+    this.wishlistItems = JSON.parse(localStorage.getItem('wishlist')!).length
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = user ? true : false;
     });

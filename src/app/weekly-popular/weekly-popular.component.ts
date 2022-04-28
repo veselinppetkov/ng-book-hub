@@ -7,11 +7,11 @@ import { ProductService } from '../product/product.service';
 @Component({
   selector: 'app-weekly-popular',
   templateUrl: './weekly-popular.component.html',
-  styleUrls: ['./weekly-popular.component.css']
 })
 export class WeeklyPopularComponent implements OnInit {
   weekly: Product[] = []!;
   subscription: Subscription = null!;
+
   customOptions: OwlOptions = {
     nav: false,
     dots: true,
@@ -20,7 +20,7 @@ export class WeeklyPopularComponent implements OnInit {
   customOptions2: OwlOptions = {
     nav: false,
     dots: true,
-    margin: 20,
+    margin: -225,
     loop: false,
     responsive: {
       0: {
@@ -46,7 +46,6 @@ export class WeeklyPopularComponent implements OnInit {
 
   constructor(private productService: ProductService) { };
 
-
   ngOnInit() {
     this.subscription = this.productService.productsChanged
       .subscribe(
@@ -55,6 +54,7 @@ export class WeeklyPopularComponent implements OnInit {
         }
       );
     this.weekly = this.productService.getAllProducts();
+
   }
 
   onNewWeekly() {

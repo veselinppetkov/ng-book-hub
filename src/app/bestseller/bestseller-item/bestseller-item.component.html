@@ -1,5 +1,5 @@
 <div class="product">
-  <span class="product-label label-top">Top</span>
+  <span class="product-label label-top">Award Winner</span>
   <figure class="product-media">
     <a routerLink="/product/{{ bestseller.book_id }}">
       <img
@@ -12,22 +12,24 @@
 
   <div class="product-body">
     <div class="product-cat">
-      by <a routerLink="#">{{ bestseller.author }}</a>
+      by
+      <a routerLink="/product/{{ bestseller.book_id }}">{{
+        bestseller.author
+      }}</a>
     </div>
     <h3 class="product-title">
-      <a routerLink="#">{{ bestseller.title }}</a>
+      <a routerLink="/product/{{ bestseller.book_id }}">{{
+        bestseller.title
+      }}</a>
     </h3>
     <div class="product-price">
       <span class="new-price">${{ bestseller.price }}</span>
-      <span class="old-price"
-        >Was ${{ (bestseller.price * 1.2).toFixed(2) }}</span
-      >
     </div>
 
     <div class="product-footer">
       <div class="ratings-container">
         <div class="ratings">
-          <div class="ratings-val" style="width: 80%"></div>
+          <div class="ratings-val" [style]="rating"></div>
         </div>
         <span class="ratings-text">( 10 Reviews )</span>
       </div>
@@ -35,8 +37,19 @@
         <a routerLink="#" class="btn-product btn-cart"
           ><span>add to cart</span></a
         >
-        <a routerLink="#" class="btn-product btn-wishlist"
+        <a
+          *ngIf="!isAddedToWishlist"
+          style="cursor: pointer"
+          (click)="onWishlist(bestseller.book_id)"
+          class="btn-product btn-wishlist"
           ><span>Add to Wishlist</span></a
+        >
+        <a
+          *ngIf="isAddedToWishlist"
+          style="cursor: pointer"
+          (click)="onRemove(bestseller.book_id)"
+          class="btn-product btn-wishlist"
+          ><span>Remove from Wishlist</span></a
         >
       </div>
     </div>

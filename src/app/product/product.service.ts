@@ -51,17 +51,17 @@ export class ProductService {
     }
 
     addProductToWishlist(productId: number) {
-        const wishlist: number[] = [];
+        const wishlist: any[] = [];
+        const productItem = this.getProductById(productId);
 
         if (!localStorage.getItem('wishlist')) {
-            wishlist.push(productId);
+            wishlist.push(productItem);
             localStorage.setItem('wishlist', JSON.stringify(wishlist))
-        } else {
-            const watchlistLocal = JSON.parse(localStorage.getItem('wishlist')!)
-            watchlistLocal.push(productId)
-            localStorage.setItem('wishlist', JSON.stringify(watchlistLocal))
+        } else if (!wishlist.includes(productItem)) {
+            const wishlistLocal = JSON.parse(localStorage.getItem('wishlist')!)
+            wishlistLocal.push(productItem)
+            localStorage.setItem('wishlist', JSON.stringify(wishlistLocal))
         }
-
     }
 
 

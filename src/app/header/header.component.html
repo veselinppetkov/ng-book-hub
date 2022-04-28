@@ -97,7 +97,7 @@
             <a routerLink="/wishlist" title="Wishlist">
               <div class="icon">
                 <i class="icon-heart-o"></i>
-                <span class="wishlist-count badge">0</span>
+                <span class="wishlist-count badge">{{ wishlistItems }}</span>
               </div>
               <p>Wishlist</p>
             </a>
@@ -106,7 +106,7 @@
 
           <div class="dropdown cart-dropdown">
             <a
-              routerLink="#"
+              routerLink="/cart"
               class="dropdown-toggle"
               role="button"
               data-toggle="dropdown"

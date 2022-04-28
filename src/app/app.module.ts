@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { APP_BASE_HREF } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { IntroComponent } from './intro/intro.component';
@@ -18,7 +17,6 @@ import { ProductComponent } from './product/product.component';
 import { ShopComponent } from './shop/shop.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
-import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { BestsellerItemComponent } from './bestseller/bestseller-item/bestseller-item.component';
@@ -27,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { WeeklyPopularItemComponent } from './weekly-popular/weekly-popular-item/weekly-popular-item.component';
 
 @NgModule({
   declarations: [
@@ -35,17 +34,17 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     FooterComponent,
     IntroComponent,
     BestsellerComponent,
-    WeeklyPopularComponent,
     AuthModalComponent,
     PageNotFoundComponent,
     ProductComponent,
     ShopComponent,
     AboutComponent,
     CartComponent,
-    ContactComponent,
     ProfileComponent,
     WishlistComponent,
     BestsellerItemComponent,
+    WeeklyPopularItemComponent,
+    WeeklyPopularComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +55,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     SharedModule,
     CoreModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
