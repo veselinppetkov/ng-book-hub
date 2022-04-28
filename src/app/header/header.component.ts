@@ -39,7 +39,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.dateStorageService.fetchProducts().subscribe();
-    this.wishlistItems = JSON.parse(localStorage.getItem('wishlist')!).length
+    if (localStorage.getItem('wishlist')) {
+      this.wishlistItems = JSON.parse(localStorage.getItem('wishlist')!).length
+    }
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = user ? true : false;
     });

@@ -12,7 +12,7 @@
   <div class="container">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-      <li class="breadcrumb-item"><a routerLink="#">Shop</a></li>
+      <li class="breadcrumb-item"><a style="cursor: pointer">Shop</a></li>
     </ol>
   </div>
   <!-- End .container -->
@@ -26,7 +26,9 @@
         <div class="toolbox">
           <div class="toolbox-right">
             <div class="toolbox-info">
-              Showing <span>9 of 56</span> Products
+              Showing
+              <span>{{ products.length }} of {{ products.length }}</span>
+              Products
             </div>
             <!-- End .toolbox-info -->
           </div>
@@ -49,15 +51,24 @@
                     <img
                       src="{{ productItem.cover }}"
                       alt="Product image"
-                      class="product-image-bestseller"
+                      class="product-image-shop"
                     />
                   </a>
 
                   <div class="product-action-vertical">
                     <a
-                      routerLink="#"
+                      *ngIf="!isAddedToWishlist"
+                      (click)="onWishlist(productItem.book_id)"
+                      style="cursor: pointer"
                       class="btn-product-icon btn-wishlist btn-expandable"
                       ><span>add to wishlist</span></a
+                    >
+                    <a
+                      *ngIf="isAddedToWishlist"
+                      (click)="onRemove(productItem.book_id)"
+                      style="cursor: pointer"
+                      class="btn-product-icon btn-wishlist btn-expandable"
+                      ><span>remove from wishlist</span></a
                     >
                   </div>
                   <!-- End .product-action-vertical -->
@@ -73,11 +84,15 @@
 
                 <div class="product-body">
                   <div class="product-cat">
-                    <a routerLink="#">{{ productItem.author }}</a>
+                    <a routerLink="/product/{{ productItem.book_id }}">{{
+                      productItem.author
+                    }}</a>
                   </div>
                   <!-- End .product-cat -->
                   <h3 class="product-title">
-                    <a routerLink="product.html">{{ productItem.title }}</a>
+                    <a routerLink="/product/{{ productItem.book_id }}">{{
+                      productItem.title
+                    }}</a>
                   </h3>
                   <!-- End .product-title -->
                   <div class="product-price">${{ productItem.price }}</div>
@@ -144,7 +159,9 @@
         <div class="sidebar sidebar-shop">
           <div class="widget widget-clean">
             <label>Filters:</label>
-            <a routerLink="#" class="sidebar-filter-clear">Clean All</a>
+            <a style="cursor: pointer" class="sidebar-filter-clear"
+              >Clean All</a
+            >
           </div>
           <!-- End .widget widget-clean -->
 
@@ -152,7 +169,7 @@
             <h3 class="widget-title">
               <a
                 data-toggle="collapse"
-                routerLink="#widget-1"
+                style="cursor: pointer"
                 role="button"
                 aria-expanded="true"
                 aria-controls="widget-1"
@@ -165,77 +182,32 @@
             <div class="collapse show" id="widget-1">
               <div class="widget-body">
                 <div class="filter-items filter-items-count">
-                  <div class="filter-item">
+                  <div
+                    class="filter-item"
+                    *ngFor="let categoryEl of categories"
+                  >
                     <div class="custom-control custom-checkbox">
                       <input
+                        (click)="onClick($event)"
                         type="checkbox"
                         class="custom-control-input"
-                        id="cat-1"
+                        id="{{ categoryEl }}"
+                        name="{{ categoryEl }}"
+                        value="{{ categoryEl }}"
                       />
-                      <label class="custom-control-label" for="cat-1"
-                        >Biography</label
+                      <label
+                        class="custom-control-label"
+                        for="{{ categoryEl }}"
+                        >{{ categoryEl }}</label
                       >
                     </div>
                     <!-- End .custom-checkbox -->
                     <span class="item-count">3</span>
                   </div>
-                  <!-- End .filter-item -->
-
-                  <div class="filter-item">
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="cat-2"
-                      />
-                      <label class="custom-control-label" for="cat-2"
-                        >Programming</label
-                      >
-                    </div>
-                    <!-- End .custom-checkbox -->
-                    <span class="item-count">0</span>
-                  </div>
-                  <!-- End .filter-item -->
-
-                  <div class="filter-item">
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="cat-3"
-                      />
-                      <label class="custom-control-label" for="cat-3"
-                        >Travel</label
-                      >
-                    </div>
-                    <!-- End .custom-checkbox -->
-                    <span class="item-count">4</span>
-                  </div>
-                  <!-- End .filter-item -->
-
-                  <div class="filter-item">
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="cat-4"
-                      />
-                      <label class="custom-control-label" for="cat-4"
-                        >History</label
-                      >
-                    </div>
-                    <!-- End .custom-checkbox -->
-                    <span class="item-count">2</span>
-                  </div>
-                  <!-- End .filter-item -->
                 </div>
-                <!-- End .filter-items -->
               </div>
-              <!-- End .widget-body -->
             </div>
-            <!-- End .collapse -->
           </div>
-          <!-- End .widget -->
 
           <div class="widget widget-collapsible">
             <h3 class="widget-title">

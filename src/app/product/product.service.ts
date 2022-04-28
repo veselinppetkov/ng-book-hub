@@ -25,6 +25,9 @@ export class ProductService {
         return [...new Set(this.products.map(p => p.category))];
     }
 
+    getAllAuthors() {
+        return [...new Set(this.products.map(p => p.author))];
+    }
 
     getProduct(index: number) {
         return this.products[index];

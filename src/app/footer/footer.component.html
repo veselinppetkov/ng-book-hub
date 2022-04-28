@@ -69,10 +69,19 @@
 
                 <ul class="widget-list">
                   <li>
-                    <a href="#signin-modal" data-toggle="modal">Sign In</a>
+                    <a
+                      href="#signin-modal"
+                      data-toggle="modal"
+                      *ngIf="!isAuthenticated"
+                      >Sign In</a
+                    >
                   </li>
-                  <li><a routerLink="/cart">View Cart</a></li>
-                  <li><a routerLink="/wishlist">My Wishlist</a></li>
+                  <li *ngIf="isAuthenticated">
+                    <a routerLink="/cart">View Cart</a>
+                  </li>
+                  <li *ngIf="isAuthenticated">
+                    <a routerLink="/wishlist">My Wishlist</a>
+                  </li>
                 </ul>
                 <!-- End .widget-list -->
               </div>
