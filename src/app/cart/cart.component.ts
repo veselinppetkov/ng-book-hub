@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Subscription } from 'rxjs';
+
+import { Cart } from './cart.model';
+
 import { ProductService } from '../product/product.service';
 import { DataStorageService } from '../shared/data-storage.service';
-import { WishlistService } from '../wishlist/wishlist.service';
-import { Cart } from './cart.model';
 import { CartService } from './cart.service';
 
 @Component({
@@ -16,7 +18,10 @@ export class CartComponent implements OnInit {
   subtotal: any = 0;
   total: any = [];
 
-  constructor(private dateStorageService: DataStorageService, private productService: ProductService, private cartService: CartService) { }
+  constructor(
+    private dateStorageService: DataStorageService,
+    private productService: ProductService,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
     this.items = this.cartService.getAllCarts().filter(c => c.userId == JSON.parse(localStorage.getItem('userData')!).id)

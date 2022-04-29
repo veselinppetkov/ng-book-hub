@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Loader } from '@googlemaps/js-api-loader';
 
 @Component({
@@ -6,7 +7,6 @@ import { Loader } from '@googlemaps/js-api-loader';
   templateUrl: './contact.component.html',
 })
 export class ContactComponent implements OnInit {
-
 
   ngOnInit() {
     const loader = new Loader({
@@ -32,7 +32,5 @@ export class ContactComponent implements OnInit {
         // do something
       });
   }
-
-
 
 }

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { Wishlist } from './wishlist.model';
-
-
 @Injectable({ providedIn: 'root' })
 export class WishlistService {
     wishlistChanged = new Subject<Wishlist[]>();
@@ -29,7 +27,5 @@ export class WishlistService {
         this.wishlist.splice(index, 1);
         this.wishlistChanged.next(this.wishlist.slice());
     }
-
-
 
 }

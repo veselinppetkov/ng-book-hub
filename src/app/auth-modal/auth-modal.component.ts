@@ -91,5 +91,4 @@ export class AuthModalComponent {
     form.reset();
   }
 
-
 }

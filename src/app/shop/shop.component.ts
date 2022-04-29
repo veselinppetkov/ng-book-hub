@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Subscription } from 'rxjs';
-import { AuthService } from '../auth-modal/auth.service';
+
 import { Cart } from '../cart/cart.model';
-import { CartService } from '../cart/cart.service';
 import { Product } from '../product/product.model';
+import { Wishlist } from '../wishlist/wishlist.model';
+
+import { AuthService } from '../auth-modal/auth.service';
+import { CartService } from '../cart/cart.service';
 import { ProductService } from '../product/product.service';
 import { DataStorageService } from '../shared/data-storage.service';
-import { Wishlist } from '../wishlist/wishlist.model';
 import { WishlistService } from '../wishlist/wishlist.service';
 
 @Component({
@@ -16,16 +19,22 @@ import { WishlistService } from '../wishlist/wishlist.service';
 export class ShopComponent implements OnInit {
   authors: string[] = [];
   categories: string[] = [];
-  oldCategory: string = '';
   products: Product[] = []!;
+
+  oldCategory: string = '';
   subscription: Subscription = null!;
-  isAddedToWishlist = false;
-  rating: string = 'width: 100%'
-  isAddedToCart = false;
+  isAddedToWishlist: boolean = false;
+  isAddedToCart: boolean = false;
   isAuthenticated: boolean = false;
+  rating: string = 'width: 100%'
 
 
-  constructor(private productService: ProductService, private authService: AuthService, private dateStorageService: DataStorageService, private wishlistService: WishlistService, private cartService: CartService) { };
+  constructor(
+    private productService: ProductService,
+    private authService: AuthService,
+    private dateStorageService: DataStorageService,
+    private wishlistService: WishlistService,
+    private cartService: CartService) { };
 
   ngOnInit() {
     this.authService.user.subscribe(user => {
@@ -48,7 +57,6 @@ export class ShopComponent implements OnInit {
     this.products = this.productService.getAllProducts();
     Array.from(document.getElementsByClassName('custom-control-input')).forEach((el) => (el as HTMLInputElement).checked = false)
   }
-
 
   onWishlist(bookId: number) {
     const book = this.productService.getProductById(bookId)!
@@ -98,10 +106,6 @@ export class ShopComponent implements OnInit {
     this.isAddedToCart = true;
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
   onCategoryClick(event: any) {
     console.log(event);
     this.products = this.productService.getAllProducts().filter((p) => p.category == event.target.value);
@@ -110,6 +114,10 @@ export class ShopComponent implements OnInit {
   onAuthorClick(event: any) {
     console.log(event.currentTarget);
     this.products = this.productService.getAllProducts().filter((p) => p.author == event.target.value);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

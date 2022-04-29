@@ -1,13 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Subscription } from 'rxjs';
-import { AuthService } from '../auth-modal/auth.service';
+
 import { Cart } from '../cart/cart.model';
+import { Wishlist } from '../wishlist/wishlist.model';
+
+import { AuthService } from '../auth-modal/auth.service';
 import { CartService } from '../cart/cart.service';
 import { ProductService } from '../product/product.service';
 import { DataStorageService } from '../shared/data-storage.service';
-import { Wishlist } from '../wishlist/wishlist.model';
 import { WishlistService } from '../wishlist/wishlist.service';
 
 @Component({
@@ -16,6 +19,7 @@ import { WishlistService } from '../wishlist/wishlist.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   categories: string[] = [];
+  isAuthenticated: boolean = false;
   wishlistItems: any = 0;
   cartItems: any = 0;
   subscription: Subscription = null!;
@@ -23,7 +27,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   subscriptionWishlist: Subscription = null!;
   subscriptionCart: Subscription = null!;
   userSub: Subscription = null!;
-  isAuthenticated: boolean = false;
 
   constructor(
     private authService: AuthService,

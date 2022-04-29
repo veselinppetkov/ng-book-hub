@@ -3,6 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { RecipesResolverService } from './product/product-resolver.service';
 
+import { AuthGuard } from './auth-modal/auth.guard';
+
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
@@ -12,7 +14,6 @@ import { ProductComponent } from './product/product.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ShopComponent } from './shop/shop.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { AuthGuard } from './auth-modal/auth.guard';
 
 const routes: Routes = [
   { path: '', component: IntroComponent, pathMatch: 'full' },

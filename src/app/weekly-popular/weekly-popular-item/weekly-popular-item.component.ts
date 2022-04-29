@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Cart } from 'src/app/cart/cart.model';
+import { Wishlist } from 'src/app/wishlist/wishlist.model';
+import { Product } from '../../product/product.model';
+
 import { CartService } from 'src/app/cart/cart.service';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
-import { Wishlist } from 'src/app/wishlist/wishlist.model';
 import { WishlistService } from 'src/app/wishlist/wishlist.service';
-import { Product } from '../../product/product.model';
 import { ProductService } from '../../product/product.service';
 
 @Component({
@@ -16,8 +18,6 @@ export class WeeklyPopularItemComponent implements OnInit {
   @Input() isAuthenticated: boolean = false;
   isAddedToWishlist = false;
   isAddedToCart = false;
-
-
   rating: string = 'width: 100%';
 
   constructor(private productsService: ProductService, private wishlistService: WishlistService, private dateStorageService: DataStorageService, private cartService: CartService) { }

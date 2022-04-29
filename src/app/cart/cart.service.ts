@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
+
 import { Subject } from 'rxjs';
 
 import { Cart } from './cart.model';
-
-
 @Injectable({ providedIn: 'root' })
 export class CartService {
     cartChanged = new Subject<Cart[]>();
@@ -29,6 +28,5 @@ export class CartService {
         this.cart.splice(index, 1);
         this.cartChanged.next(this.cart.slice());
     }
-
 
 }

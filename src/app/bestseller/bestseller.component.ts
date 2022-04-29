@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 import { Subscription } from 'rxjs';
@@ -53,10 +54,6 @@ export class BestsellerComponent implements OnInit, OnDestroy {
         }
       );
     this.bestsellers = this.productService.getAllProducts();
-  }
-
-  onNewBestseller() {
-    // this.router.navigate(['new'], { relativeTo: this.route });
   }
 
   ngOnDestroy() {

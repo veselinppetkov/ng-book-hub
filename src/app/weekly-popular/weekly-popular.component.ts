@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../auth-modal/auth.service';
+
 import { Cart } from '../cart/cart.model';
-import { CartService } from '../cart/cart.service';
 import { Product } from '../product/product.model';
+
+import { AuthService } from '../auth-modal/auth.service';
+import { CartService } from '../cart/cart.service';
 import { ProductService } from '../product/product.service';
 import { DataStorageService } from '../shared/data-storage.service';
 
@@ -17,7 +20,6 @@ export class WeeklyPopularComponent implements OnInit {
   subscription: Subscription = null!;
   isAuthenticated: boolean = false;
   isAddedToCart: boolean = false;
-
 
   customOptions: OwlOptions = {
     nav: false,
@@ -51,7 +53,11 @@ export class WeeklyPopularComponent implements OnInit {
     }
   }
 
-  constructor(private productService: ProductService, private authService: AuthService, private dateStorageService: DataStorageService, private cartService: CartService) { };
+  constructor(
+    private productService: ProductService,
+    private authService: AuthService,
+    private dateStorageService: DataStorageService,
+    private cartService: CartService) { };
 
   ngOnInit() {
     this.authService.user.subscribe(user => {

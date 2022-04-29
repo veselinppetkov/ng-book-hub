@@ -23,8 +23,4 @@ export class ReviewService {
         this.reviewsChanged.next(this.reviews.slice())
     }
 
-
-
-
-
 }

@@ -1,10 +1,13 @@
-import { Component, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { Subscription } from 'rxjs';
+
 import { Cart } from '../cart/cart.model';
+import { Wishlist } from './wishlist.model';
+
 import { CartService } from '../cart/cart.service';
 import { ProductService } from '../product/product.service';
 import { DataStorageService } from '../shared/data-storage.service';
-import { Wishlist } from './wishlist.model';
 import { WishlistService } from './wishlist.service';
 
 @Component({
@@ -14,7 +17,11 @@ import { WishlistService } from './wishlist.service';
 export class WishlistComponent implements OnInit, OnDestroy {
   items: any[] = [];
   subscription: Subscription = null!;
-  constructor(private wishlistService: WishlistService, private dateStorageService: DataStorageService, private productService: ProductService, private cartService: CartService) { }
+  constructor(
+    private wishlistService: WishlistService,
+    private dateStorageService: DataStorageService,
+    private productService: ProductService,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
     this.items = this.wishlistService.getAllLists().filter(w => w.userId == JSON.parse(localStorage.getItem('userData')!).id)

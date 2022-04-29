@@ -6,8 +6,9 @@ import {
 } from '@angular/router';
 
 import { DataStorageService } from '../shared/data-storage.service';
-import { Product } from './product.model';
 import { ProductService } from './product.service';
+
+import { Product } from './product.model';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesResolverService implements Resolve<Product[]> {

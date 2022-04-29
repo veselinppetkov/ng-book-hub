@@ -1,13 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth-modal/auth.service';
-import { Cart } from 'src/app/cart/cart.model';
-import { CartService } from 'src/app/cart/cart.service';
 
+import { Cart } from 'src/app/cart/cart.model';
 import { Product } from 'src/app/product/product.model';
+import { Wishlist } from 'src/app/wishlist/wishlist.model';
+
+import { AuthService } from 'src/app/auth-modal/auth.service';
+import { CartService } from 'src/app/cart/cart.service';
 import { ProductService } from 'src/app/product/product.service';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
-import { Wishlist } from 'src/app/wishlist/wishlist.model';
 import { WishlistService } from 'src/app/wishlist/wishlist.service';
+
+
 
 @Component({
   selector: 'app-bestseller-item',
@@ -15,9 +18,9 @@ import { WishlistService } from 'src/app/wishlist/wishlist.service';
 })
 export class BestsellerItemComponent implements OnInit {
   @Input() bestseller: Product = null!;
-  @Input() index: number = 0!;
-  isAddedToWishlist = false;
-  isAddedToCart = false;
+
+  isAddedToWishlist: boolean = false;
+  isAddedToCart: boolean = false;
   isAuthenticated: boolean = false;
 
   wishlist: Wishlist[] = [];
