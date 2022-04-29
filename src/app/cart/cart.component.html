@@ -11,9 +11,14 @@
 <nav aria-label="breadcrumb" class="breadcrumb-nav">
   <div class="container">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a routerLink="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a routerLink="#">Shop</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li
+        class="breadcrumb-item active"
+        aria-current="page"
+        style="cursor: pointer"
+      >
+        Shopping Cart
+      </li>
     </ol>
   </div>
   <!-- End .container -->
@@ -77,46 +82,6 @@
                   <button class="btn-remove"><i class="icon-close"></i></button>
                 </td>
               </tr>
-              <tr>
-                <td class="product-col">
-                  <div class="product">
-                    <figure class="product-media">
-                      <a routerLink="#">
-                        <img
-                          src="../../assets/images/products/table/product-2.jpg"
-                          alt="Product image"
-                        />
-                      </a>
-                    </figure>
-
-                    <h3 class="product-title">
-                      <a routerLink="#">Blue utility pinafore denim dress</a>
-                    </h3>
-                    <!-- End .product-title -->
-                  </div>
-                  <!-- End .product -->
-                </td>
-                <td class="price-col">$76.00</td>
-                <td class="quantity-col">
-                  <div class="cart-product-quantity">
-                    <input
-                      type="number"
-                      class="form-control"
-                      value="1"
-                      min="1"
-                      max="10"
-                      step="1"
-                      data-decimals="0"
-                      required
-                    />
-                  </div>
-                  <!-- End .cart-product-quantity -->
-                </td>
-                <td class="total-col">$76.00</td>
-                <td class="remove-col">
-                  <button class="btn-remove"><i class="icon-close"></i></button>
-                </td>
-              </tr>
             </tbody>
           </table>
           <!-- End .table table-wishlist -->
@@ -142,10 +107,6 @@
               </form>
             </div>
             <!-- End .cart-discount -->
-
-            <a routerLink="#" class="btn btn-outline-dark-2"
-              ><span>UPDATE CART</span><i class="icon-refresh"></i
-            ></a>
           </div>
           <!-- End .cart-bottom -->
         </div>
@@ -226,13 +187,6 @@
                 </tr>
                 <!-- End .summary-shipping-row -->
 
-                <tr class="summary-shipping-estimate">
-                  <td>
-                    Estimate for Your Country<br />
-                    <a routerLink="dashboard.html">Change address</a>
-                  </td>
-                  <td>&nbsp;</td>
-                </tr>
                 <!-- End .summary-shipping-estimate -->
 
                 <tr class="summary-total">
@@ -252,9 +206,7 @@
           </div>
           <!-- End .summary -->
 
-          <a
-            routerLink="category.html"
-            class="btn btn-outline-dark-2 btn-block mb-3"
+          <a routerLink="/shop" class="btn btn-outline-dark-2 btn-block mb-3"
             ><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i
           ></a>
         </aside>

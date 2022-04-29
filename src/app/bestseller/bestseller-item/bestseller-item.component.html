@@ -38,7 +38,10 @@
         <span class="ratings-text">( 10 Reviews )</span>
       </div>
       <div class="product-action" *ngIf="isAuthenticated">
-        <a routerLink="#" class="btn-product btn-cart"
+        <a
+          *ngIf="!isAddedToCart"
+          (click)="onCart(bestseller.book_id)"
+          class="btn-product btn-cart"
           ><span>add to cart</span></a
         >
         <a

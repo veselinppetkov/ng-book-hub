@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
+import { Wishlist } from 'src/app/wishlist/wishlist.model';
+import { WishlistService } from 'src/app/wishlist/wishlist.service';
 import { Product } from '../../product/product.model';
 import { ProductService } from '../../product/product.service';
 
@@ -13,20 +16,41 @@ export class WeeklyPopularItemComponent implements OnInit {
 
   rating: string = 'width: 100%';
 
-  constructor(private productService: ProductService) { }
+  constructor(private productsService: ProductService, private wishlistService: WishlistService, private dateStorageService: DataStorageService) { }
 
   ngOnInit() {
     this.rating = "width: " + (this.product.rating * 20) + '%';
   }
 
   onWishlist(bookId: number) {
-    this.productService.addProductToWishlist(bookId)
+    const book = this.productsService.getProductById(bookId)!
+    const wishlist: Wishlist = {
+      author: book.author,
+      book_id: book.book_id,
+      category: book.category,
+      cover: book.cover,
+      description: book.description,
+      pages: book.pages,
+      price: book.price,
+      publishedDate: book.publishedDate,
+      rating: book.rating,
+      title: book.title,
+      url: book.url,
+      userId: JSON.parse(localStorage.getItem('userData')!).id
+    }
+
+    this.wishlistService.addList(wishlist);
+    this.dateStorageService.storeWishlist();
+
     this.isAddedToWishlist = true;
   }
 
   onRemove(bookId: number) {
-    console.log(`TO DO!`)
+    this.wishlistService.deleteWatchlist(bookId);
+    this.dateStorageService.storeWishlist();
+
     this.isAddedToWishlist = false;
+
   }
 
 }

@@ -116,7 +116,7 @@
             >
               <div class="icon">
                 <i class="icon-shopping-cart"></i>
-                <span class="cart-count">0</span>
+                <span class="cart-count">{{ cartItems }}</span>
               </div>
               <p>Cart</p>
             </a>
@@ -152,33 +152,6 @@
                 </div>
                 <!-- End .product -->
 
-                <div class="product">
-                  <div class="product-cart-details">
-                    <h4 class="product-title">
-                      <a routerLink="product.html"
-                        >Blue utility pinafore denim dress</a
-                      >
-                    </h4>
-
-                    <span class="cart-product-info">
-                      <span class="cart-product-qty">1</span>
-                      x $76.00
-                    </span>
-                  </div>
-                  <!-- End .product-cart-details -->
-
-                  <figure class="product-image-container">
-                    <a routerLink="product.html" class="product-image">
-                      <img
-                        src="../../assets/images/products/cart/product-2.jpg"
-                        alt="product"
-                      />
-                    </a>
-                  </figure>
-                  <a routerLink="#" class="btn-remove" title="Remove Product"
-                    ><i class="icon-close"></i
-                  ></a>
-                </div>
                 <!-- End .product -->
               </div>
               <!-- End .cart-product -->
@@ -192,7 +165,7 @@
 
               <div class="dropdown-cart-action">
                 <a routerLink="/cart" class="btn btn-primary">View Cart</a>
-                <a routerLink="/checkout" class="btn btn-outline-primary-2"
+                <a style="cursor: pointer" class="btn btn-outline-primary-2"
                   ><span>Checkout</span><i class="icon-long-arrow-right"></i
                 ></a>
               </div>

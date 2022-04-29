@@ -159,7 +159,10 @@
         <div class="sidebar sidebar-shop">
           <div class="widget widget-clean">
             <label>Filters:</label>
-            <a style="cursor: pointer" class="sidebar-filter-clear"
+            <a
+              (click)="cleanAll()"
+              style="cursor: pointer"
+              class="sidebar-filter-clear"
               >Clean All</a
             >
           </div>

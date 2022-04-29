@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../auth-modal/auth.service';
 import { Product } from '../product/product.model';
 import { ProductService } from '../product/product.service';
+import { DataStorageService } from '../shared/data-storage.service';
+import { Wishlist } from '../wishlist/wishlist.model';
+import { WishlistService } from '../wishlist/wishlist.service';
 
 @Component({
   selector: 'app-shop',
@@ -17,7 +20,7 @@ export class ShopComponent implements OnInit {
   isAddedToWishlist = false;
   rating: string = 'width: 100%'
 
-  constructor(private productService: ProductService, private authService: AuthService) { };
+  constructor(private productService: ProductService, private authService: AuthService, private dateStorageService: DataStorageService, private wishlistService: WishlistService) { };
   isAuthenticated: boolean = false;
 
   ngOnInit() {
@@ -37,18 +40,41 @@ export class ShopComponent implements OnInit {
 
   }
 
-  onNewBestseller() {
-    // this.router.navigate(['new'], { relativeTo: this.route });
+  cleanAll() {
+    this.products = this.productService.getAllProducts();
+    Array.from(document.getElementsByClassName('custom-control-input')).forEach((el) => (el as HTMLInputElement).checked = false)
   }
 
+
   onWishlist(bookId: number) {
-    this.productService.addProductToWishlist(bookId)
+    const book = this.productService.getProductById(bookId)!
+    const wishlist: Wishlist = {
+      author: book.author,
+      book_id: book.book_id,
+      category: book.category,
+      cover: book.cover,
+      description: book.description,
+      pages: book.pages,
+      price: book.price,
+      publishedDate: book.publishedDate,
+      rating: book.rating,
+      title: book.title,
+      url: book.url,
+      userId: JSON.parse(localStorage.getItem('userData')!).id
+    }
+
+    this.wishlistService.addList(wishlist);
+    this.dateStorageService.storeWishlist();
+
     this.isAddedToWishlist = true;
   }
 
   onRemove(bookId: number) {
-    console.log(`TO DO!`)
+    this.wishlistService.deleteWatchlist(bookId);
+    this.dateStorageService.storeWishlist();
+
     this.isAddedToWishlist = false;
+
   }
 
   ngOnDestroy() {
@@ -61,7 +87,7 @@ export class ShopComponent implements OnInit {
   }
 
   onAuthorClick(event: any) {
-    console.log(event);
+    console.log(event.currentTarget);
     this.products = this.productService.getAllProducts().filter((p) => p.author == event.target.value);
   }
 

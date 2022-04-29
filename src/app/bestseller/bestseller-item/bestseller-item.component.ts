@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth-modal/auth.service';
+import { Cart } from 'src/app/cart/cart.model';
+import { CartService } from 'src/app/cart/cart.service';
 
 import { Product } from 'src/app/product/product.model';
 import { ProductService } from 'src/app/product/product.service';
@@ -15,8 +17,11 @@ export class BestsellerItemComponent implements OnInit {
   @Input() bestseller: Product = null!;
   @Input() index: number = 0!;
   isAddedToWishlist = false;
+  isAddedToCart = false;
   isAuthenticated: boolean = false;
+
   wishlist: Wishlist[] = [];
+  cart: Cart[] = [];
 
   rating: string = 'width: 100%';
 
@@ -24,9 +29,17 @@ export class BestsellerItemComponent implements OnInit {
     private authService: AuthService,
     private wishlistService: WishlistService,
     private dateStorageService: DataStorageService,
-    private productsService: ProductService) { }
+    private productsService: ProductService,
+    private cartService: CartService) { }
 
   ngOnInit() {
+    this.cartService.cartChanged
+      .subscribe(
+        (cart: Cart[]) => {
+          this.cart = cart;
+        }
+      );
+
     this.wishlistService.wishlistChanged
       .subscribe(
         (wishlist: Wishlist[]) => {
@@ -68,6 +81,25 @@ export class BestsellerItemComponent implements OnInit {
   onRemove(bookId: number) {
     this.wishlistService.deleteWatchlist(bookId);
     this.dateStorageService.storeWishlist();
+
+    this.isAddedToWishlist = false;
+  }
+
+  onCart(bookId: number) {
+    const book = this.productsService.getProductById(bookId)!
+
+    const cart: Cart = {
+      book_id: book.book_id,
+      cover: book.cover,
+      price: book.price,
+      title: book.title,
+      userId: JSON.parse(localStorage.getItem('userData')!).id
+    }
+
+    this.cartService.addCart(cart);
+    this.dateStorageService.storeCart();
+
+    this.isAddedToCart = true;
   }
 
 }

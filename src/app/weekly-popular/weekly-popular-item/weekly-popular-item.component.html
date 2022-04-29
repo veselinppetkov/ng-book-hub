@@ -38,10 +38,18 @@
           ><span>add to cart</span></a
         >
         <a
+          *ngIf="!isAddedToWishlist"
           style="cursor: pointer"
-          (click)="(onWishlist)"
+          (click)="onWishlist(product.book_id)"
           class="btn-product btn-wishlist"
           ><span>Add to Wishlist</span></a
+        >
+        <a
+          *ngIf="isAddedToWishlist"
+          style="cursor: pointer"
+          (click)="onRemove(product.book_id)"
+          class="btn-product btn-wishlist"
+          ><span>Remove from Wishlist</span></a
         >
       </div>
       <!-- End .product-action -->
