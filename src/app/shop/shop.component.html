@@ -55,7 +55,7 @@
                     />
                   </a>
 
-                  <div class="product-action-vertical">
+                  <div class="product-action-vertical" *ngIf="isAuthenticated">
                     <a
                       *ngIf="!isAddedToWishlist"
                       (click)="onWishlist(productItem.book_id)"
@@ -73,7 +73,7 @@
                   </div>
                   <!-- End .product-action-vertical -->
 
-                  <div class="product-action">
+                  <div class="product-action" *ngIf="isAuthenticated">
                     <a routerLink="#" class="btn-product btn-cart"
                       ><span>add to cart</span></a
                     >
@@ -99,7 +99,7 @@
                   <!-- End .product-price -->
                   <div class="ratings-container">
                     <div class="ratings">
-                      <div class="ratings-val" style="width: 20%"></div>
+                      <div class="ratings-val" [style]="rating"></div>
                       <!-- End .ratings-val -->
                     </div>
                     <!-- End .ratings -->
@@ -188,7 +188,7 @@
                   >
                     <div class="custom-control custom-checkbox">
                       <input
-                        (click)="onClick($event)"
+                        (click)="onCategoryClick($event)"
                         type="checkbox"
                         class="custom-control-input"
                         id="{{ categoryEl }}"
@@ -202,7 +202,7 @@
                       >
                     </div>
                     <!-- End .custom-checkbox -->
-                    <span class="item-count">3</span>
+                    <span class="item-count">{{ categoryEl.length }}</span>
                   </div>
                 </div>
               </div>
@@ -226,41 +226,20 @@
             <div class="collapse show" id="widget-2">
               <div class="widget-body">
                 <div class="filter-items">
-                  <div class="filter-item">
+                  <div class="filter-item" *ngFor="let authorEl of authors">
                     <div class="custom-control custom-checkbox">
                       <input
+                        (click)="onAuthorClick($event)"
                         type="checkbox"
                         class="custom-control-input"
-                        id="author-1"
+                        id="{{ authorEl }}"
+                        name="{{ authorEl }}"
+                        value="{{ authorEl }}"
                       />
-                      <label class="custom-control-label" for="author-1"
-                        >Michelle Obama</label
-                      >
-                    </div>
-                    <!-- End .custom-checkbox -->
-                  </div>
-                  <div class="filter-item">
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="author-2"
-                      />
-                      <label class="custom-control-label" for="author-2"
-                        >Barack Obama</label
-                      >
-                    </div>
-                    <!-- End .custom-checkbox -->
-                  </div>
-                  <div class="filter-item">
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="author-3"
-                      />
-                      <label class="custom-control-label" for="author-3"
-                        >Travis Obama</label
+                      <label
+                        class="custom-control-label"
+                        for="{{ authorEl }}"
+                        >{{ authorEl }}</label
                       >
                     </div>
                     <!-- End .custom-checkbox -->

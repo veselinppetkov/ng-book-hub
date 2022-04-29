@@ -54,17 +54,25 @@ export class ProductService {
     }
 
     addProductToWishlist(productId: number) {
-        const wishlist: any[] = [];
-        const productItem = this.getProductById(productId);
+        let userData = JSON.parse(localStorage.getItem('userData')!)
+        let wishlist = JSON.parse(localStorage.getItem('userData')!).wishlist
+        wishlist = [...wishlist, productId];
+        localStorage.setItem('userData', JSON.stringify(userData));
 
-        if (!localStorage.getItem('wishlist')) {
-            wishlist.push(productItem);
-            localStorage.setItem('wishlist', JSON.stringify(wishlist))
-        } else if (!wishlist.includes(productItem)) {
-            const wishlistLocal = JSON.parse(localStorage.getItem('wishlist')!)
-            wishlistLocal.push(productItem)
-            localStorage.setItem('wishlist', JSON.stringify(wishlistLocal))
-        }
+        // localStorage.setItem('userData', userData)
+
+
+        // const wishlist: any[] = [];
+        // const productItem = this.getProductById(productId);
+
+        // if (!localStorage.getItem('wishlist')) {
+        //     wishlist.push(productItem);
+        //     localStorage.setItem('wishlist', JSON.stringify(wishlist))
+        // } else if (!wishlist.includes(productItem)) {
+        //     const wishlistLocal = JSON.parse(localStorage.getItem('wishlist')!)
+        //     wishlistLocal.push(productItem)
+        //     localStorage.setItem('wishlist', JSON.stringify(wishlistLocal))
+        // }
     }
 
 

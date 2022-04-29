@@ -49,9 +49,8 @@ import { WeeklyPopularItemComponent } from './weekly-popular/weekly-popular-item
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
     AppRoutingModule,
+    FormsModule,
     SharedModule,
     CoreModule,
     BrowserAnimationsModule,

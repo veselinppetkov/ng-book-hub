@@ -90,7 +90,10 @@
               </p>
             </div>
 
-            <div class="details-filter-row details-row-size">
+            <div
+              class="details-filter-row details-row-size"
+              *ngIf="isAuthenticated"
+            >
               <label for="qty">Qty:</label>
               <div class="product-details-quantity">
                 <input
@@ -107,7 +110,7 @@
               </div>
             </div>
 
-            <div class="product-details-action">
+            <div class="product-details-action" *ngIf="isAuthenticated">
               <a routerLink="#" class="btn-product btn-cart"
                 ><span>add to cart</span></a
               >
@@ -236,7 +239,7 @@
           aria-labelledby="product-review-link"
         >
           <div class="reviews">
-            <h3>Reviews (2)</h3>
+            <h3>Reviews ({{ reviews.length }})</h3>
             <div class="review">
               <div class="row no-gutters">
                 <div class="col-auto">
@@ -314,6 +317,127 @@
               </div>
               <!-- End .row -->
             </div>
+
+            <span *ngFor="let review of reviews">
+              <div class="review" *ngIf="review.bookId == product.book_id">
+                <div class="row no-gutters">
+                  <div class="col-auto">
+                    <h4><a routerLink="#">Softuncho</a></h4>
+                    <div class="ratings-container">
+                      <div class="ratings">
+                        <div class="ratings-val" style="width: 100%"></div>
+                        <!-- End .ratings-val -->
+                      </div>
+                      <!-- End .ratings -->
+                    </div>
+                    <!-- End .rating-container -->
+                    <span class="review-date">{{ review.date }}</span>
+                  </div>
+                  <!-- End .col -->
+                  <div class="col">
+                    <h4>{{ review.reviewTitle }}</h4>
+
+                    <div class="review-content">
+                      <p>
+                        {{ review.reviewText }}
+                      </p>
+                    </div>
+                    <!-- End .review-content -->
+
+                    <div class="review-action">
+                      <a style="cursor: pointer"
+                        ><i class="icon-thumbs-up"></i>Helpful ({{
+                          review.helpful
+                        }})</a
+                      >
+                      <a style="cursor: pointer"
+                        ><i class="icon-thumbs-down"></i>Unhelpful ({{
+                          review.unhelpful
+                        }})</a
+                      >
+                    </div>
+                    <!-- End .review-action -->
+                  </div>
+                  <!-- End .col-auto -->
+                </div>
+                <!-- End .row -->
+              </div>
+            </span>
+          </div>
+          <div class="reply" *ngIf="isAuthenticated">
+            <div class="title-wrapper-text-left">
+              <h3 class="title title-simple text-left text-normal">
+                Add a Review
+              </h3>
+            </div>
+            <form #reviewForm="ngForm" (ngSubmit)="onReviewSubmit(reviewForm)">
+              <div class="rating-form">
+                <label for="rating" class="text-dark">Your rating: </label>
+                <div class="rating">
+                  <input
+                    ngModel
+                    type="radio"
+                    name="rating"
+                    value="5"
+                    id="5"
+                  /><label for="5">☆</label>
+                  <input
+                    ngModel
+                    type="radio"
+                    name="rating"
+                    value="4"
+                    id="4"
+                  /><label for="4">☆</label>
+                  <input
+                    ngModel
+                    type="radio"
+                    name="rating"
+                    value="3"
+                    id="3"
+                  /><label for="3">☆</label>
+                  <input
+                    ngModel
+                    type="radio"
+                    name="rating"
+                    value="2"
+                    id="2"
+                  /><label for="2">☆</label>
+                  <input
+                    ngModel
+                    type="radio"
+                    name="rating"
+                    value="1"
+                    id="1"
+                  /><label for="1">☆</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    id="replyTitle"
+                    name="replyTitle"
+                    ngModel
+                    placeholder="Your review title..."
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+              <textarea
+                name="replyMsg"
+                id="replyMsg"
+                ngModel
+                required
+                cols="30"
+                rows="6"
+                placeholder="This is one of my favorite books of all time..."
+                class="form-control mb-2"
+              ></textarea>
+              <button type="submit" class="btn btn-outline-primary-2">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
         <!-- End of review section -->

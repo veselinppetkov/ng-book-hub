@@ -8,6 +8,7 @@ import { ProductService } from '../../product/product.service';
 })
 export class WeeklyPopularItemComponent implements OnInit {
   @Input() product: Product = null!;
+  @Input() isAuthenticated: boolean = false;
   isAddedToWishlist = false;
 
   rating: string = 'width: 100%';

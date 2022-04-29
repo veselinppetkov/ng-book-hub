@@ -14,6 +14,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   categories: string[] = [];
   wishlistItems: number = 0;
   subscription: Subscription = null!;
+  subscriptionReview: Subscription = null!;
+  subscriptionWishlist: Subscription = null!;
   userSub: Subscription = null!;
   isAuthenticated: boolean = false;
 
@@ -33,12 +35,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     form.reset();
   }
 
-  ngOnChanges() {
-    this.wishlistItems = JSON.parse(localStorage.getItem('wishlist')!).length
-  }
-
   ngOnInit() {
+
     this.subscription = this.dateStorageService.fetchProducts().subscribe();
+    this.subscriptionReview = this.dateStorageService.fetchReviews().subscribe();
+    this.subscriptionWishlist = this.dateStorageService.fetchWishlist().subscribe();
+
     if (localStorage.getItem('wishlist')) {
       this.wishlistItems = JSON.parse(localStorage.getItem('wishlist')!).length
     }
@@ -57,6 +59,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.subscriptionReview.unsubscribe();
+    this.subscriptionWishlist.unsubscribe();
     this.userSub.unsubscribe();
   }
 

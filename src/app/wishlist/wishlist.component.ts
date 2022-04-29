@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WishlistService } from './wishlist.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishlistComponent implements OnInit {
   items: any[] = [];
-  constructor() { }
+  constructor(private wishlistService: WishlistService) { }
 
   ngOnInit(): void {
-    this.items = JSON.parse(localStorage.getItem('wishlist')!)
-  }
+    this.items = this.wishlistService.getAllLists().filter(w => w.userId == JSON.parse(localStorage.getItem('userData')!).id)
 
+  }
 }

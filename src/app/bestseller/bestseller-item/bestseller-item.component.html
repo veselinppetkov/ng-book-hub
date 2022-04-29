@@ -33,7 +33,7 @@
         </div>
         <span class="ratings-text">( 10 Reviews )</span>
       </div>
-      <div class="product-action">
+      <div class="product-action" *ngIf="isAuthenticated">
         <a routerLink="#" class="btn-product btn-cart"
           ><span>add to cart</span></a
         >

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../auth-modal/auth.service';
 import { Product } from '../product/product.model';
 import { ProductService } from '../product/product.service';
 
@@ -8,15 +9,21 @@ import { ProductService } from '../product/product.service';
   templateUrl: './shop.component.html',
 })
 export class ShopComponent implements OnInit {
+  authors: string[] = [];
   categories: string[] = [];
   oldCategory: string = '';
   products: Product[] = []!;
   subscription: Subscription = null!;
   isAddedToWishlist = false;
+  rating: string = 'width: 100%'
 
-  constructor(private productService: ProductService) { };
+  constructor(private productService: ProductService, private authService: AuthService) { };
+  isAuthenticated: boolean = false;
 
   ngOnInit() {
+    this.authService.user.subscribe(user => {
+      this.isAuthenticated = user ? true : false;
+    });
     this.subscription = this.productService.productsChanged
       .subscribe(
         (products: Product[]) => {
@@ -25,6 +32,9 @@ export class ShopComponent implements OnInit {
       );
     this.products = this.productService.getAllProducts();
     this.categories = this.productService.getAllCategories();
+    this.authors = this.productService.getAllAuthors();
+    this.rating = "width: " + ((Math.random() * 10) * 10) + '%';
+
   }
 
   onNewBestseller() {
@@ -45,9 +55,14 @@ export class ShopComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  onClick(event: any) {
+  onCategoryClick(event: any) {
     console.log(event);
     this.products = this.productService.getAllProducts().filter((p) => p.category == event.target.value);
+  }
+
+  onAuthorClick(event: any) {
+    console.log(event);
+    this.products = this.productService.getAllProducts().filter((p) => p.author == event.target.value);
   }
 
 }

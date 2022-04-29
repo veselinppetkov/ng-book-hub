@@ -13,6 +13,7 @@ import { AuthResponseData, AuthService } from './auth.service';
 export class AuthModalComponent {
   isLoading: boolean = false;
   error: any = null;
+  modalStatus: string = 'modal fade';
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -44,6 +45,9 @@ export class AuthModalComponent {
       }
     });
 
+    document.getElementById('signin-modal')!.style.display = 'none'
+    Array.from(document.getElementsByClassName('modal-open')).forEach(item => item.className = 'modal-close')
+    Array.from(document.getElementsByClassName('modal-backdrop fade show')).forEach(item => item.className = '')
     form.reset();
   }
 
@@ -81,6 +85,9 @@ export class AuthModalComponent {
       }
     });
 
+    document.getElementById('signin-modal')!.style.display = 'none'
+    Array.from(document.getElementsByClassName('modal-open')).forEach(item => item.className = 'modal-close')
+    Array.from(document.getElementsByClassName('modal-backdrop fade show')).forEach(item => item.className = '')
     form.reset();
   }
 

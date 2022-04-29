@@ -4,22 +4,18 @@ import { map, tap } from 'rxjs/operators';
 
 import { Product } from '../product/product.model';
 import { ProductService } from '../product/product.service';
+import { ReviewService } from './review.service';
+import { Review } from './review.model';
+import { WishlistService } from '../wishlist/wishlist.service';
+import { Wishlist } from '../wishlist/wishlist.model';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
-    constructor(private http: HttpClient, private productService: ProductService) { }
-
-    storeProducts() {
-        const products = this.productService.getAllProducts();
-        this.http
-            .put(
-                'https://ng-book-hub-default-rtdb.europe-west1.firebasedatabase.app/books.json',
-                products
-            )
-            .subscribe(response => {
-                console.log(response);
-            });
-    }
+    constructor(
+        private http: HttpClient,
+        private productService: ProductService,
+        private reviewService: ReviewService,
+        private wishlistService: WishlistService) { }
 
     fetchProducts() {
         return this.http.get<Product[]>(
@@ -33,6 +29,62 @@ export class DataStorageService {
         }),
             tap(products => {
                 this.productService.setProducts(products);
+            }))
+    }
+
+    storeReviews() {
+        const reviews = this.reviewService.getAllReviews();
+
+        this.http
+            .put(
+                'https://ng-book-hub-default-rtdb.europe-west1.firebasedatabase.app/reviews.json',
+                reviews
+            )
+            .subscribe(response => {
+                console.log(response);
+            });
+    }
+
+    fetchReviews() {
+        return this.http.get<Review[]>(
+            'https://ng-book-hub-default-rtdb.europe-west1.firebasedatabase.app/reviews.json'
+        ).pipe(map(reviews => {
+            return reviews.map(review => {
+                return {
+                    ...review
+                };
+            });
+        }),
+            tap(reviews => {
+                this.reviewService.setReviews(reviews);
+            }))
+    }
+
+    storeWishlist() {
+        const wishlist = this.wishlistService.getAllLists();
+
+        this.http
+            .put(
+                'https://ng-book-hub-default-rtdb.europe-west1.firebasedatabase.app/wishlist.json',
+                wishlist
+            )
+            .subscribe(response => {
+                console.log(response);
+            });
+    }
+
+    fetchWishlist() {
+        return this.http.get<Wishlist[]>(
+            'https://ng-book-hub-default-rtdb.europe-west1.firebasedatabase.app/wishlist.json'
+        ).pipe(map(wishlist => {
+            return wishlist.map(wishlist => {
+                return {
+                    ...wishlist
+                };
+            });
+        }),
+            tap(wishlist => {
+                this.wishlistService.setWishlist(wishlist);
             }))
     }
 }

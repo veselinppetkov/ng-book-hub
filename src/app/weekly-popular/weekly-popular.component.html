@@ -46,7 +46,7 @@
                   <div class="product-price">$14.99</div>
                   <!-- End .product-price -->
 
-                  <div class="product-action">
+                  <div class="product-action" *ngIf="isAuthenticated">
                     <a
                       routerLink="/product/58438583"
                       class="btn-product btn-cart"
@@ -80,6 +80,7 @@
               *ngFor="let product of weekly"
             >
               <app-weekly-popular-item
+                [isAuthenticated]="isAuthenticated"
                 [product]="product"
               ></app-weekly-popular-item>
             </ng-template>
