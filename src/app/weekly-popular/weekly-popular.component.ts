@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth-modal/auth.service';
+import { Cart } from '../cart/cart.model';
+import { CartService } from '../cart/cart.service';
 import { Product } from '../product/product.model';
 import { ProductService } from '../product/product.service';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-weekly-popular',
@@ -13,6 +16,7 @@ export class WeeklyPopularComponent implements OnInit {
   weekly: Product[] = []!;
   subscription: Subscription = null!;
   isAuthenticated: boolean = false;
+  isAddedToCart: boolean = false;
 
 
   customOptions: OwlOptions = {
@@ -47,7 +51,7 @@ export class WeeklyPopularComponent implements OnInit {
     }
   }
 
-  constructor(private productService: ProductService, private authService: AuthService) { };
+  constructor(private productService: ProductService, private authService: AuthService, private dateStorageService: DataStorageService, private cartService: CartService) { };
 
   ngOnInit() {
     this.authService.user.subscribe(user => {
@@ -64,8 +68,21 @@ export class WeeklyPopularComponent implements OnInit {
 
   }
 
-  onNewWeekly() {
-    // this.router.navigate(['new'], { relativeTo: this.route });
+  onCart(bookId: number) {
+    const book = this.productService.getProductById(bookId)!
+
+    const cart: Cart = {
+      book_id: book.book_id,
+      cover: book.cover,
+      price: book.price,
+      title: book.title,
+      userId: JSON.parse(localStorage.getItem('userData')!).id
+    }
+
+    this.cartService.addCart(cart);
+    this.dateStorageService.storeCart();
+
+    this.isAddedToCart = true;
   }
 
   ngOnDestroy() {

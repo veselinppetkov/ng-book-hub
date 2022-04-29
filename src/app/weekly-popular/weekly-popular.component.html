@@ -48,7 +48,9 @@
 
                   <div class="product-action" *ngIf="isAuthenticated">
                     <a
-                      routerLink="/product/58438583"
+                      *ngIf="!isAddedToCart"
+                      (click)="onCart(58438583)"
+                      style="cursor: pointer"
                       class="btn-product btn-cart"
                       ><span>add to cart</span></a
                     >

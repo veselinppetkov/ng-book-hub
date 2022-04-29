@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Cart } from 'src/app/cart/cart.model';
+import { CartService } from 'src/app/cart/cart.service';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Wishlist } from 'src/app/wishlist/wishlist.model';
 import { WishlistService } from 'src/app/wishlist/wishlist.service';
@@ -13,10 +15,12 @@ export class WeeklyPopularItemComponent implements OnInit {
   @Input() product: Product = null!;
   @Input() isAuthenticated: boolean = false;
   isAddedToWishlist = false;
+  isAddedToCart = false;
+
 
   rating: string = 'width: 100%';
 
-  constructor(private productsService: ProductService, private wishlistService: WishlistService, private dateStorageService: DataStorageService) { }
+  constructor(private productsService: ProductService, private wishlistService: WishlistService, private dateStorageService: DataStorageService, private cartService: CartService) { }
 
   ngOnInit() {
     this.rating = "width: " + (this.product.rating * 20) + '%';
@@ -51,6 +55,23 @@ export class WeeklyPopularItemComponent implements OnInit {
 
     this.isAddedToWishlist = false;
 
+  }
+
+  onCart(bookId: number) {
+    const book = this.productsService.getProductById(bookId)!
+
+    const cart: Cart = {
+      book_id: book.book_id,
+      cover: book.cover,
+      price: book.price,
+      title: book.title,
+      userId: JSON.parse(localStorage.getItem('userData')!).id
+    }
+
+    this.cartService.addCart(cart);
+    this.dateStorageService.storeCart();
+
+    this.isAddedToCart = true;
   }
 
 }

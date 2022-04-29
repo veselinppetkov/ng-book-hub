@@ -1,4 +1,5 @@
 <div class="product" style="width: 210px; height: 360px">
+  <span class="product-label label-new">Viral</span>
   <figure class="product-media">
     <a routerLink="/product/{{ product.book_id }}">
       <img
@@ -34,7 +35,11 @@
       </div>
       <!-- End .rating-container -->
       <div class="product-action" *ngIf="isAuthenticated">
-        <a routerLink="#" class="btn-product btn-cart"
+        <a
+          style="cursor: pointer"
+          class="btn-product btn-cart"
+          *ngIf="!isAddedToCart"
+          (click)="onCart(product.book_id)"
           ><span>add to cart</span></a
         >
         <a
