@@ -67,6 +67,7 @@ export class BestsellerItemComponent implements OnInit {
 
   onRemove(bookId: number) {
     this.wishlistService.deleteWatchlist(bookId);
+    this.dateStorageService.storeWishlist();
   }
 
 }

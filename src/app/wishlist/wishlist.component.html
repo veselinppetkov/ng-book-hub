@@ -66,7 +66,9 @@
             >
           </td>
           <td class="remove-col">
-            <button class="btn-remove"><i class="icon-close"></i></button>
+            <button class="btn-remove" (click)="onRemove(item.book_id)">
+              <i class="icon-close"></i>
+            </button>
           </td>
         </tr>
       </tbody>

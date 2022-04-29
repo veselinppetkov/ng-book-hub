@@ -1,5 +1,6 @@
 <div class="product">
   <span class="product-label label-top">Award Winner</span>
+  <span class="product-label label-sale">-30 %</span>
   <figure class="product-media">
     <a routerLink="/product/{{ bestseller.book_id }}">
       <img
@@ -23,7 +24,10 @@
       }}</a>
     </h3>
     <div class="product-price">
-      <span class="new-price">${{ bestseller.price }}</span>
+      <span class="new-price"> ${{ bestseller.price }}</span>
+      <span class="old-price"
+        >Was ${{ (bestseller.price * 1.3).toFixed(2) }}
+      </span>
     </div>
 
     <div class="product-footer">

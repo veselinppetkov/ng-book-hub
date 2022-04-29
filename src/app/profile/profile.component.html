@@ -3,7 +3,7 @@
   style="background-image: url('../../assets/images/page-header-bg.jpg')"
 >
   <div class="container">
-    <h1 class="page-title">My Account<span>Shop</span></h1>
+    <h1 class="page-title">My Account</h1>
   </div>
   <!-- End .container -->
 </div>
@@ -11,9 +11,14 @@
 <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
   <div class="container">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a routerLink="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a routerLink="#">Shop</a></li>
-      <li class="breadcrumb-item active" aria-current="page">My Account</li>
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li
+        class="breadcrumb-item active"
+        aria-current="page"
+        style="cursor: pointer"
+      >
+        My Account
+      </li>
     </ol>
   </div>
   <!-- End .container -->
@@ -31,7 +36,7 @@
                 class="nav-link active"
                 id="tab-dashboard-link"
                 data-toggle="tab"
-                routerLink="#tab-dashboard"
+                href="#tab-dashboard"
                 role="tab"
                 aria-controls="tab-dashboard"
                 aria-selected="true"
@@ -43,7 +48,7 @@
                 class="nav-link"
                 id="tab-orders-link"
                 data-toggle="tab"
-                routerLink="#tab-orders"
+                href="#tab-orders"
                 role="tab"
                 aria-controls="tab-orders"
                 aria-selected="false"
@@ -53,21 +58,9 @@
             <li class="nav-item">
               <a
                 class="nav-link"
-                id="tab-downloads-link"
-                data-toggle="tab"
-                routerLink="#tab-downloads"
-                role="tab"
-                aria-controls="tab-downloads"
-                aria-selected="false"
-                >Downloads</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
                 id="tab-address-link"
                 data-toggle="tab"
-                routerLink="#tab-address"
+                href="#tab-address"
                 role="tab"
                 aria-controls="tab-address"
                 aria-selected="false"
@@ -79,15 +72,18 @@
                 class="nav-link"
                 id="tab-account-link"
                 data-toggle="tab"
-                routerLink="#tab-account"
+                href="#tab-account"
                 role="tab"
                 aria-controls="tab-account"
                 aria-selected="false"
                 >Account Details</a
               >
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" routerLink="#">Sign Out</a>
+              <a class="nav-link" routerLink="#" (click)="onLogout()"
+                >Sign Out</a
+              >
             </li>
           </ul>
         </aside>
@@ -103,20 +99,43 @@
             >
               <p>
                 Hello
-                <span class="font-weight-normal text-dark">User</span> (not
-                <span class="font-weight-normal text-dark">User</span>?
-                <a routerLink="#">Log out</a>)
+                <span
+                  class="font-weight-normal text-dark"
+                  style="cursor: pointer"
+                  >{{ user }}</span
+                >
+                (not
+                <span
+                  style="cursor: pointer"
+                  class="font-weight-normal text-dark"
+                  >{{ user }}</span
+                >?
+                <a
+                  style="
+                    cursor: pointer;
+                    color: #1cc0a0;
+                    font-size: 16px;
+                    font-style: Poppins sans-serif;
+                    text-decoration: underline;
+                  "
+                  (click)="onLogout()"
+                  >Log out</a
+                >)
                 <br />
                 From your account dashboard you can view your
                 <a
-                  routerLink="#tab-orders"
+                  style="cursor: pointer"
                   class="tab-trigger-link link-underline"
                   >recent orders</a
                 >, manage your
-                <a routerLink="#tab-address" class="tab-trigger-link"
+                <a
+                  style="cursor: pointer"
+                  class="tab-trigger-link link-underline"
                   >shipping and billing addresses</a
                 >, and
-                <a routerLink="#tab-account" class="tab-trigger-link"
+                <a
+                  style="cursor: pointer"
+                  class="tab-trigger-link link-underline"
                   >edit your password and account details</a
                 >.
               </p>
@@ -129,8 +148,8 @@
               role="tabpanel"
               aria-labelledby="tab-orders-link"
             >
-              <p>No order has been made yet.</p>
-              <a routerLink="category.html" class="btn btn-outline-primary-2"
+              <p>No orders have been made yet.</p>
+              <a routerLink="/shop" class="btn btn-outline-primary-2"
                 ><span>GO SHOP</span><i class="icon-long-arrow-right"></i
               ></a>
             </div>
@@ -174,7 +193,9 @@
                         New York, NY 10001<br />
                         1-234-987-6543<br />
                         yourmail@mail.com<br />
-                        <a routerLink="#">Edit <i class="icon-edit"></i></a>
+                        <a style="cursor: pointer"
+                          >Edit <i class="icon-edit"></i
+                        ></a>
                       </p>
                     </div>
                     <!-- End .card-body -->
@@ -191,7 +212,9 @@
 
                       <p>
                         You have not set up this type of address yet.<br />
-                        <a routerLink="#">Edit <i class="icon-edit"></i></a>
+                        <a style="cursor: pointer"
+                          >Edit <i class="icon-edit"></i
+                        ></a>
                       </p>
                     </div>
                     <!-- End .card-body -->

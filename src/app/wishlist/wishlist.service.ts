@@ -24,7 +24,8 @@ export class WishlistService {
         this.wishlistChanged.next([...new Set(this.wishlist.slice())])
     }
 
-    deleteWatchlist(index: number) {
+    deleteWatchlist(bookId: number) {
+        let index = this.wishlist.findIndex((e) => e.book_id == bookId);
         this.wishlist.splice(index, 1);
         this.wishlistChanged.next(this.wishlist.slice());
     }
