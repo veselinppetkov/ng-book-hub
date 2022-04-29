@@ -26,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { WeeklyPopularItemComponent } from './weekly-popular/weekly-popular-item/weekly-popular-item.component';
+import { ShopItemComponent } from './shop/shop-item/shop-item.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { WeeklyPopularItemComponent } from './weekly-popular/weekly-popular-item
     WishlistComponent,
     BestsellerItemComponent,
     WeeklyPopularItemComponent,
-    WeeklyPopularComponent
+    WeeklyPopularComponent,
+    ShopItemComponent
   ],
   imports: [
     BrowserModule,

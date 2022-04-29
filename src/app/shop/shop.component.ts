@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth-modal/auth.service';
+import { Cart } from '../cart/cart.model';
+import { CartService } from '../cart/cart.service';
 import { Product } from '../product/product.model';
 import { ProductService } from '../product/product.service';
 import { DataStorageService } from '../shared/data-storage.service';
@@ -19,9 +21,11 @@ export class ShopComponent implements OnInit {
   subscription: Subscription = null!;
   isAddedToWishlist = false;
   rating: string = 'width: 100%'
-
-  constructor(private productService: ProductService, private authService: AuthService, private dateStorageService: DataStorageService, private wishlistService: WishlistService) { };
+  isAddedToCart = false;
   isAuthenticated: boolean = false;
+
+
+  constructor(private productService: ProductService, private authService: AuthService, private dateStorageService: DataStorageService, private wishlistService: WishlistService, private cartService: CartService) { };
 
   ngOnInit() {
     this.authService.user.subscribe(user => {
@@ -75,6 +79,23 @@ export class ShopComponent implements OnInit {
 
     this.isAddedToWishlist = false;
 
+  }
+
+  onCart(bookId: number) {
+    const book = this.productService.getProductById(bookId)!
+
+    const cart: Cart = {
+      book_id: book.book_id,
+      cover: book.cover,
+      price: book.price,
+      title: book.title,
+      userId: JSON.parse(localStorage.getItem('userData')!).id
+    }
+
+    this.cartService.addCart(cart);
+    this.dateStorageService.storeCart();
+
+    this.isAddedToCart = true;
   }
 
   ngOnDestroy() {

@@ -1,0 +1,71 @@
+<div class="product product-7 text-center">
+  <figure class="product-media">
+    <span class="product-label label-new">New</span>
+    <a routerLink="/product/{{ productItem.book_id }}">
+      <img
+        src="{{ productItem.cover }}"
+        alt="Product image"
+        class="product-image-shop"
+      />
+    </a>
+
+    <div class="product-action-vertical" *ngIf="isAuthenticated">
+      <a
+        *ngIf="!isAddedToWishlist"
+        (click)="onWishlist(productItem.book_id)"
+        style="cursor: pointer"
+        class="btn-product-icon btn-wishlist btn-expandable"
+        ><span>add to wishlist</span></a
+      >
+      <a
+        *ngIf="isAddedToWishlist"
+        (click)="onRemove(productItem.book_id)"
+        style="cursor: pointer"
+        class="btn-product-icon btn-wishlist btn-expandable"
+        ><span>remove from wishlist</span></a
+      >
+    </div>
+    <!-- End .product-action-vertical -->
+
+    <div class="product-action" *ngIf="isAuthenticated">
+      <a
+        *ngIf="!isAddedToCart"
+        style="cursor: pointer"
+        class="btn-product btn-cart"
+        (click)="onCart(productItem.book_id)"
+        ><span>add to cart</span></a
+      >
+    </div>
+    <!-- End .product-action -->
+  </figure>
+  <!-- End .product-media -->
+
+  <div class="product-body">
+    <div class="product-cat">
+      <a routerLink="/product/{{ productItem.book_id }}">{{
+        productItem.author
+      }}</a>
+    </div>
+    <!-- End .product-cat -->
+    <h3 class="product-title">
+      <a routerLink="/product/{{ productItem.book_id }}">{{
+        productItem.title
+      }}</a>
+    </h3>
+    <!-- End .product-title -->
+    <div class="product-price">${{ productItem.price }}</div>
+    <!-- End .product-price -->
+    <div class="ratings-container">
+      <div class="ratings">
+        <div class="ratings-val" [style]="rating"></div>
+        <!-- End .ratings-val -->
+      </div>
+      <!-- End .ratings -->
+      <span class="ratings-text">( 2 Reviews )</span>
+    </div>
+    <!-- End .rating-container -->
+
+    <!-- End .product-nav -->
+  </div>
+  <!-- End .product-body -->
+</div>
