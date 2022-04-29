@@ -15,7 +15,9 @@ export class AuthModalComponent {
   error: any = null;
   modalStatus: string = 'modal fade';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router) { }
 
   onLoginSubmit(form: NgForm) {
     if (!form.valid) {
@@ -90,5 +92,7 @@ export class AuthModalComponent {
     Array.from(document.getElementsByClassName('modal-backdrop fade show')).forEach(item => item.className = '')
     form.reset();
   }
+
+
 
 }
