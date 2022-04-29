@@ -1,11 +1,15 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth-modal/auth.service';
+import { Cart } from '../cart/cart.model';
+import { CartService } from '../cart/cart.service';
 import { DataStorageService } from '../shared/data-storage.service';
 import { Review } from '../shared/review.model';
 import { ReviewService } from '../shared/review.service';
+import { Wishlist } from '../wishlist/wishlist.model';
+import { WishlistService } from '../wishlist/wishlist.service';
 import { Product } from './product.model';
 import { ProductService } from './product.service';
 
@@ -19,7 +23,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   id: number = 0!;
   subscription: Subscription = null!;
   rating: string = null!;
-  addedToWishList: boolean = false;
+  isAddedToWishList: boolean = false;
+  isAddedToCart: boolean = false;
   isAuthenticated: boolean = false;
   reviews: Review[] = [];
 
@@ -28,7 +33,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     private productService: ProductService,
     private route: ActivatedRoute,
     private authService: AuthService,
-    private reviewService: ReviewService, private dateStorageService: DataStorageService) { }
+    private reviewService: ReviewService, private dateStorageService: DataStorageService, private cartService: CartService, private wishlistService: WishlistService) { }
 
 
   ngOnInit() {
@@ -58,8 +63,52 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   }
 
-  onWishlist(productId: number) {
-    this.productService.addProductToWishlist(productId)
+  onWishlist(bookId: number) {
+    const book = this.productService.getProductById(bookId)!
+    const wishlist: Wishlist = {
+      author: book.author,
+      book_id: book.book_id,
+      category: book.category,
+      cover: book.cover,
+      description: book.description,
+      pages: book.pages,
+      price: book.price,
+      publishedDate: book.publishedDate,
+      rating: book.rating,
+      title: book.title,
+      url: book.url,
+      userId: JSON.parse(localStorage.getItem('userData')!).id
+    }
+
+    this.wishlistService.addList(wishlist);
+    this.dateStorageService.storeWishlist();
+
+    this.isAddedToWishList = true;
+  }
+
+  onRemove(bookId: number) {
+    this.wishlistService.deleteWatchlist(bookId);
+    this.dateStorageService.storeWishlist();
+
+    this.isAddedToWishList = false;
+
+  }
+
+  onCart(bookId: number) {
+    const book = this.productService.getProductById(bookId)!
+
+    const cart: Cart = {
+      book_id: book.book_id,
+      cover: book.cover,
+      price: book.price,
+      title: book.title,
+      userId: JSON.parse(localStorage.getItem('userData')!).id
+    }
+
+    this.cartService.addCart(cart);
+    this.dateStorageService.storeCart();
+
+    this.isAddedToCart = true;
   }
 
   onHelpful(number: number) {

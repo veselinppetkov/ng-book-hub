@@ -26,7 +26,17 @@
 <!-- End .breadcrumb-nav -->
 
 <div class="page-content">
-  <div class="container">
+  <div class="container" *ngIf="items.length == 0">
+    <div class="text-center">
+      <i
+        class="icon-heart-o wishlist-empty d-block"
+        style="font-size: 15rem; line-height: 1"
+      ></i>
+      <span class="d-block mt-2">No products added to wishlist</span>
+      <a routerLink="/shop" class="btn btn-primary mt-2">Go to shop</a>
+    </div>
+  </div>
+  <div class="container" *ngIf="items.length != 0">
     <table class="table table-wishlist table-mobile">
       <thead>
         <tr>
@@ -61,7 +71,10 @@
 
           <td class="price-col">${{ item.price }}</td>
           <td>
-            <a class="btn btn-outline-primary btn-round" style="cursor: pointer"
+            <a
+              class="btn btn-outline-primary btn-round"
+              style="cursor: pointer"
+              (click)="onCart(item.book_id)"
               >Add to cart</a
             >
           </td>

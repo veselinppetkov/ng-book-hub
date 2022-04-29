@@ -31,7 +31,7 @@
           <!-- End .ratings-val -->
         </div>
         <!-- End .ratings -->
-        <span class="ratings-text">( 5 Reviews )</span>
+        <span class="ratings-text">( 2 Reviews )</span>
       </div>
       <!-- End .rating-container -->
       <div class="product-action" *ngIf="isAuthenticated">
@@ -41,6 +41,13 @@
           *ngIf="!isAddedToCart"
           (click)="onCart(product.book_id)"
           ><span>add to cart</span></a
+        >
+        <a
+          style="cursor: pointer"
+          class="btn-product btn-cart"
+          routerLink="/cart"
+          *ngIf="isAddedToCart"
+          ><span>Go to cart</span></a
         >
         <a
           *ngIf="!isAddedToWishlist"

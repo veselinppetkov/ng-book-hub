@@ -17,13 +17,13 @@ import { AuthGuard } from './auth-modal/auth.guard';
 const routes: Routes = [
   { path: '', component: IntroComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'product/:id', resolve: [RecipesResolverService], component: ProductComponent },
+  { path: 'shop', component: ShopComponent },
   { path: 'wishlist', canActivate: [AuthGuard], component: WishlistComponent },
   { path: 'profile', canActivate: [AuthGuard], component: ProfileComponent },
   { path: 'profile', canActivate: [AuthGuard], component: ProfileComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'product/:id', resolve: [RecipesResolverService], component: ProductComponent },
-  { path: 'shop', component: ShopComponent },
+  { path: 'cart', canActivate: [AuthGuard], component: CartComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

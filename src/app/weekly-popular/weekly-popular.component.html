@@ -54,6 +54,13 @@
                       class="btn-product btn-cart"
                       ><span>add to cart</span></a
                     >
+                    <a
+                      style="cursor: pointer"
+                      class="btn-product btn-cart"
+                      routerLink="/cart"
+                      *ngIf="isAddedToCart"
+                      ><span>Go to cart</span></a
+                    >
                   </div>
                   <!-- End .product-action -->
                 </div>
