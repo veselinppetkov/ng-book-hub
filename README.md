@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Overview
 
-[![image](https://i.ibb.co/zXcLX49/screencapture-localhost-4200-2022-04-30-03-25-01.png)](https://ng-book-hub.web.app/)
+[![image](https://i.ibb.co/zXcLX49/screencapture-localhost-4200-2022-04-30-03-25-01.png)](https://ng-book-hub.firebaseapp.com/)
 
 ## Development server
 
